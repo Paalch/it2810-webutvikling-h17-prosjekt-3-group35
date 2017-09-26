@@ -1,0 +1,36 @@
+{
+  "name": "it2810-webutvikling-h17-prosjekt-3-group35",
+  "version": "1.0.0",
+  "description": "Project 3 ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack-dev-server --content-base dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IT2810/it2810-webutvikling-h17-prosjekt-3-group35.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IT2810/it2810-webutvikling-h17-prosjekt-3-group35/issues"
+  },
+  "homepage": "https://github.com/IT2810/it2810-webutvikling-h17-prosjekt-3-group35#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "express": "^4.15.5",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "^1.12.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "webpack-dev-server": "^2.8.2"
+  }
+}

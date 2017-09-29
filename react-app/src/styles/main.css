@@ -2,6 +2,10 @@
   padding-top: 3vh;
 }
 
+.main-row {
+  margin: 0px;
+}
+
 .container {
   padding: 0px;
 }

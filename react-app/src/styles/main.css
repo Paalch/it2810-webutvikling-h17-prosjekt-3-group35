@@ -1,0 +1,21 @@
+.main-container {
+  padding-top: 3vh;
+}
+
+.container {
+  padding: 0px;
+}
+
+.left-main {
+  padding: 0px;
+}
+
+.right-main {
+  padding: 0px;
+}
+
+.box {
+  margin-right: 1vh;
+  margin-left: 1vh;
+  margin-bottom: 2vh;
+}

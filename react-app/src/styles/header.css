@@ -1,4 +1,5 @@
-.header {
-    background-color: pink;
-    padding: 15px;
+.header-container {
+  background-color: pink;
+  padding: 15px;
+  text-align: center;
 }

@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../styles/header.css'
 
 class Header extends Component {
   render () {
     return (
-      <div className={'header'}>
+      <div className={'header-container'}>
         <h1>Header</h1>
       </div>
     );

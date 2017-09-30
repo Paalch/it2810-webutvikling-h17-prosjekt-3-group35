@@ -1,5 +1,7 @@
 .header-container {
-  background-color: pink;
+  background: #212a34;
   padding: 15px;
   text-align: center;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }

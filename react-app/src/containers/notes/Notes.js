@@ -1,11 +1,13 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import './notes.css'
+import TextareaAutosize from 'react-autosize-textarea';
+
 
 class Notes extends React.Component {
 
     reset(){
-        document.getElementById("note").value = null;
+        document.getElementById("note").value = "";
 
     }
 
@@ -21,9 +23,12 @@ class Notes extends React.Component {
           <h1>Notes</h1>
         </Row>
         <Row className={'notes-box-body'}>
-          <p>Welcome to note</p>
-            <textarea id="note" className="notePad" rows="9" cols="40" placeholder="Write your personal notes here"></textarea>
-            <button id="deleteBtn" onClick={this.reset}>Delete Note</button>
+            <Col md={12}>
+                <TextareaAutosize id={"note"}className={"note-field"} maxRows={5} placeholder={"Personal notes"}></TextareaAutosize>
+            </Col>
+            <Col lg={8} mdOffset={2}>
+                <Button bsStyle="warning" id="deleteBtn" block onClick={this.reset}>Delete Note</Button>
+            </Col>
         </Row>
       </div>
     )

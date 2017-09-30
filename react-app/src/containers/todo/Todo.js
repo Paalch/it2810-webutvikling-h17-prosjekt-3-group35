@@ -1,16 +1,17 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import './todo.css';
+import TodoList from "./TodoList";
 
 class Todo extends React.Component {
   render () {
     return (
       <div className={'todo-container box'}>
         <Row className={'box-header'}>
-          <h1>2do</h1>
+          <h1>Todo</h1>
         </Row>
         <Row className={'box-body'}>
-          <p>Lorem ipsum</p>
+          <TodoList/>
         </Row>
       </div>
     )

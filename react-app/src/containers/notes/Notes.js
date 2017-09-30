@@ -14,6 +14,8 @@ class Notes extends React.Component {
         </Row>
         <Row className={'notes-box-body'}>
           <p>Lorem ipsum</p>
+            <textarea className="notePad" rows="9" cols="40">Here you can write very personal notes</textarea>
+            <button>Delete Note</button>
         </Row>
       </div>
     )

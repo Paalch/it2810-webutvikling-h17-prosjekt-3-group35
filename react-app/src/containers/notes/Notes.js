@@ -6,10 +6,13 @@ class Notes extends React.Component {
   render () {
     return (
       <div className={'notes-container box'}>
-        <Row className={'box-header'}>
+        <link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular"
+               rel="stylesheet"
+               type="text/css"/>
+        <Row className={'notes-box-header'}>
           <h1>Notes</h1>
         </Row>
-        <Row className={'box-body'}>
+        <Row className={'notes-box-body'}>
           <p>Lorem ipsum</p>
         </Row>
       </div>

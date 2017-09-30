@@ -1,8 +1,8 @@
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:arial,sans-serif;
 }
 
 #root {
   height: 100vh;
-  background-color: mediumvioletred;
+  background:#666;
 }

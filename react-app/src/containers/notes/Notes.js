@@ -3,6 +3,14 @@ import { Row, Col } from 'react-bootstrap'
 import './notes.css'
 
 class Notes extends React.Component {
+
+    reset(){
+        document.getElementById("note").value = null;
+
+    }
+
+
+
   render () {
     return (
       <div className={'notes-container box'}>
@@ -13,9 +21,9 @@ class Notes extends React.Component {
           <h1>Notes</h1>
         </Row>
         <Row className={'notes-box-body'}>
-          <p>Lorem ipsum</p>
-            <textarea className="notePad" rows="9" cols="40">Here you can write very personal notes</textarea>
-            <button>Delete Note</button>
+          <p>Welcome to note</p>
+            <textarea id="note" className="notePad" rows="9" cols="40" placeholder="Write your personal notes here"></textarea>
+            <button id="deleteBtn" onClick={this.reset}>Delete Note</button>
         </Row>
       </div>
     )

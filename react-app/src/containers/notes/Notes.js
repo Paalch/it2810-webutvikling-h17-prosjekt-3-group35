@@ -6,12 +6,10 @@ import TextareaAutosize from 'react-autosize-textarea';
 
 class Notes extends React.Component {
 
-    reset(){
-        document.getElementById("note").value = "";
-
-    }
-
-
+  reset(){
+    document.getElementById("note").value = "";
+    document.getElementById('note').style.height = '39px';
+  }
 
   render () {
     return (
@@ -23,12 +21,12 @@ class Notes extends React.Component {
           <h1>Notes</h1>
         </Row>
         <Row className={'notes-box-body'}>
-            <Col md={12}>
-                <TextareaAutosize id={"note"}className={"note-field"} maxRows={5} placeholder={"Personal notes"}></TextareaAutosize>
-            </Col>
-            <Col lg={8} mdOffset={2}>
-                <Button bsStyle="warning" id="deleteBtn" block onClick={this.reset}>Delete Note</Button>
-            </Col>
+          <Col md={12}>
+            <TextareaAutosize id={"note"} className={"note-field"} maxRows={5} placeholder={"Personal notes"}></TextareaAutosize>
+          </Col>
+          <Col md={4} mdOffset={8} xs={6} xsOffset={6}>
+            <Button bsStyle="warning" id="deleteBtn" block onClick={this.reset}>Delete Note</Button>
+          </Col>
         </Row>
       </div>
     )

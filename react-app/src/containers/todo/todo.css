@@ -16,7 +16,14 @@
 
 .form-control:focus {
   outline: none;
-  border: 0;
+}
+
+#todo-form-input {
+  background: #ccf;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 2px solid #777;
 }
 
 #todos {
@@ -27,7 +34,9 @@
   font-weight: normal;
 }
 
-.todo-element input {
-  margin: 5px 7px 5px 5px;
+.checkbox-round {
+  margin: 5px 7px 5px 5px !important;
   transform: scale(1.3);
+
+  
 }

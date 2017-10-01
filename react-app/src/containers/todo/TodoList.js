@@ -43,19 +43,18 @@ class TodoList extends Component {
     return (
       <div>
         <Row>
-          <Col md={10} xs={9}>
+          <Col xs={10}>
             <FormControl
               id={'todo-form-input'}
               type={'text'}
-              placeholder={'Todo...'}
+              placeholder={'.............................................................'}
               value={this.state.text}
               onChange={this.updateTextField}
             />
           </Col>
-          <Col md={2} xs={3}>
+          <Col xs={2}>
             <Button
               className={'todo-add-button'}
-              bsStyle={'primary'}
               onClick={this.saveTodo}>
               +
             </Button>

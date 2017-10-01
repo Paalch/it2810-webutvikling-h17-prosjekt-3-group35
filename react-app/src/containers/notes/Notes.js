@@ -6,26 +6,35 @@ import TextareaAutosize from 'react-autosize-textarea';
 
 class Notes extends React.Component {
 
-  reset(){
-    document.getElementById("note").value = "";
-    document.getElementById('note').style.height = '39px';
+  constructor() {
+    super();
+    this.state = {
+      note: ''
+    };
+    this.updateTextField = this.updateTextField.bind(this);
+    this.reset = this.reset.bind(this);
+  }
+
+  updateTextField (e) {
+    this.setState({note: e.target.value});
+  }
+
+  reset (e) {
+    this.setState({note: ''});
   }
 
   render () {
     return (
       <div className={'notes-container box'}>
-        <link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular"
-               rel="stylesheet"
-               type="text/css"/>
-        <Row className={'notes-box-header'}>
+        <Row className={'notes box-header'}>
           <h1>Notes</h1>
         </Row>
-        <Row className={'notes-box-body'}>
+        <Row className={'notes box-body'}>
           <Col md={12}>
-            <TextareaAutosize id={"note"} className={"note-field"} maxRows={5} placeholder={"Personal notes"}></TextareaAutosize>
+            <TextareaAutosize onChange={this.updateTextField} value={this.state.note} id={"note"} className={"note-field"} maxRows={7} placeholder={'.............'}></TextareaAutosize>
           </Col>
-          <Col md={4} mdOffset={8} xs={6} xsOffset={6}>
-            <Button bsStyle="warning" id="deleteBtn" block onClick={this.reset}>Delete Note</Button>
+          <Col md={4} mdOffset={8} sm={5} smOffset={7} xs={5} xsOffset={7}>
+            <Button bsStyle={'warning'} bsSize={'xs'} id="deleteBtn" block onClick={this.reset}>Delete Note</Button>
           </Col>
         </Row>
       </div>

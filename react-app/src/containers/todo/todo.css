@@ -1,22 +1,32 @@
 .todo-container {
   background: #ccf;
   padding: 30px;
-  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
-  /* Safari+Chrome */
-  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-  /* Opera */
   box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 }
 
+.todo-add-button {
+  background-color: #ccccff;
+  font-size: 2em;
+  padding: 0px;
+  border: none;
+}
 
-.todo-add-button:focus, .todo-add-button:active {
-  outline: none;
-  border: 0;
+.todo-add-button:focus, .todo-add-button:active, .todo-add-button:hover{
+  background-color: #ccccff !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .form-control:focus {
   outline: none;
-  border: 0;
+}
+
+#todo-form-input {
+  background: #ccf;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 #todos {
@@ -27,7 +37,24 @@
   font-weight: normal;
 }
 
-.todo-element input {
-  margin: 5px 7px 5px 5px;
-  transform: scale(1.3);
+.checkbox-round {
+  margin: 5px 7px 5px 5px !important;
+
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-round:checked {
+  background-color: #777777;
+}
+
+.checkbox-round:active, .checkbox-round:focus {
+  outline: none !important;
 }

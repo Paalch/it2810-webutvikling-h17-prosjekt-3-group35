@@ -1,25 +1,24 @@
 .notes-container {
-  background-color: #FFFFA5;
+  background-color: #ffffa5;
   padding: 30px;
-  -moz-box-shadow:6px 6px 8px rgba(33,33,33,1);
-  /* Safari+Chrome */
-  -webkit-box-shadow: 6px 6px 8px rgba(33,33,33,.7);
-  /* Opera */
   box-shadow: 6px 6px 8px rgba(33,33,33,.7);
 }
 
 .notes-box-body {
-  font-family:"Reenie Beanie",arial,sans-serif;
-  font-size: 1.8em;
+
 }
 
 .note-field{
   width: 100%;
   resize: none;
-  background-color: #FFFFA5;
+  background-color: #ffffa5;
   border-width: 0px;
 }
 
-.note-field:focus{
-    outline: none;
+.note-field:focus, .note-field:active {
+  outline: none !important;
+}
+
+#deleteBtn {
+  outline: none !important;
 }

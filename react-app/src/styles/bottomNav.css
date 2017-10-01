@@ -1,0 +1,28 @@
+.nav-container {
+    background: #212a34;
+    margin: 15px 0px;
+    height: 25px;
+}
+
+.item-container {
+    margin: 0px;
+}
+
+#todo {
+    background-color: #ccf;
+}
+
+#notes {
+    background-color: #ffffa5;
+}
+
+#schedule {
+    background-color: #cfc;
+}
+
+.nav-items{
+    color: black;
+    height: 45px;
+    text-align: center;
+}
+

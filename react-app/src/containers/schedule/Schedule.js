@@ -1,44 +1,49 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Row, Col} from 'react-bootstrap'
-import DatePicker from 'react-datepicker'
-import Timepicker from 'react-timepicker'
-import moment from 'moment'
 
 import './schedule.css';
-import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import CreateAppointment from "./CreateAppointment";
 
 
-class Schedule extends React.Component {
+class Schedule extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            startDate: moment()
+            appointments: [],
+            newAppointmentStart: false,
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.createAppointment = this.createAppointment.bind(this);
     }
 
-    handleChange(date) {
-        this.setState({
-            startDate: date
-        });
+    createAppointment() {
+        this.setState({newAppointmentStart: !this.state.newAppointmentStart});
     }
+
     render() {
+        let newBox = null;
+        if (this.state.newAppointmentStart) {
+            newBox = <CreateAppointment/>;
+        }
         return (
-            <div className={'schedule-container box'}>
-                <Row className={'box-header'}>
-                    <h1>Schedule</h1>
-                </Row>
-                <Row className={'box-body'}>
-                    <p>
-                        <DatePicker
-                        selected={this.state.startDate}
-                        onChange={this.handleChange}
-                        />
-                        <Timepicker/>
-                    </p>
-                </Row>
+            <div>
+
+                <div className={'schedule-container box'}>
+                    <Row className={'box-header'}>
+                        <h1>Schedule</h1>
+                    </Row>
+                    <Row className={'box-body'}>
+                        <button
+                            onClick={this.createAppointment}
+                        >Create appointment
+                        </button>
+                    </Row>
+                    {newBox}
+                </div>
+                <div>
+                </div>
             </div>
+
         )
     }
 }

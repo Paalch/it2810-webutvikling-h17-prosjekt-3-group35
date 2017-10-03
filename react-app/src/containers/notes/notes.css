@@ -19,6 +19,18 @@
   outline: none !important;
 }
 
-#deleteBtn {
+.remove-note {
+  background-color: #ffffa5;
+  box-shadow: none;
+  border: none;
+  float: right;
+  margin-top: -20px;
+  margin-right: -20px;
+}
+
+.remove-note:hover, .remove-note:active, .remove-note:focus {
+  background-color: #ffffa5 !important;
+  box-shadow: none !important;
+  border: none !important;
   outline: none !important;
 }

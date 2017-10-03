@@ -1,42 +1,54 @@
 import React from 'react';
-import { Row, Col, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import './notes.css'
-import TextareaAutosize from 'react-autosize-textarea';
-
+import NoteElement from "./NoteElement";
 
 class Notes extends React.Component {
-
   constructor() {
     super();
     this.state = {
-      note: ''
-    };
+      notes: [],
+      currentKeyCounter: 0
+    }
+    this.addNewNote = this.addNewNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
     this.updateTextField = this.updateTextField.bind(this);
-    this.reset = this.reset.bind(this);
   }
 
-  updateTextField (e) {
-    this.setState({note: e.target.value});
+  addNewNote() {
+    this.setState({
+      notes: this.state.notes.concat({id: this.state.currentKeyCounter, text: ''}),
+      currentKeyCounter: this.state.currentKeyCounter + 1
+    });
   }
 
-  reset (e) {
-    this.setState({note: ''});
+  deleteNote(index) {
+    const tempNotes = this.state.notes.filter(n => n.id !== index);
+    this.setState({notes: tempNotes,currentKeyCounter: this.state.currentKeyCounter});
+  }
+
+  updateTextField(index, text) {
+    const tempNotes = this.state.notes;
+    tempNotes.forEach((note) => {
+      if(note.id === index) {
+        note.text = text;
+      }
+    });
+    this.setState({notes: tempNotes, currentKeyCounter: this.state.currentKeyCounter})
+
   }
 
   render () {
+    const content = this.state.notes.map((note, i) =>
+      <NoteElement key={i} note={note} updateTextField={this.updateTextField} deleteNote={this.deleteNote}/>
+    );
+
     return (
-      <div className={'notes-container box'}>
-        <Row className={'notes box-header'}>
-          <h1>Notes</h1>
-        </Row>
-        <Row className={'notes box-body'}>
-          <Col md={12}>
-            <TextareaAutosize onChange={this.updateTextField} value={this.state.note} id={"note"} className={"note-field"} maxRows={7} placeholder={'.............'}></TextareaAutosize>
-          </Col>
-          <Col md={4} mdOffset={8} sm={5} smOffset={7} xs={5} xsOffset={7}>
-            <Button bsStyle={'warning'} bsSize={'xs'} id="deleteBtn" block onClick={this.reset}>Erase</Button>
-          </Col>
-        </Row>
+      <div>
+        <Button bsStyle={'warning'} onClick={this.addNewNote}>+ new note</Button>
+        <div>
+          { content }
+        </div>
       </div>
     )
   }

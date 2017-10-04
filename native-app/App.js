@@ -10,6 +10,7 @@ class HomeScreen extends React.Component {
         title: 'SaveMyLife.com',
         headerStyle: { backgroundColor: '#212a34', elevation: 6,},
         headerTitleStyle: { alignSelf: 'center', color: '#fff', paddingTop: 5},
+        tintColor: '#fff'
     };
     render() {
         const { navigate } = this.props.navigation;

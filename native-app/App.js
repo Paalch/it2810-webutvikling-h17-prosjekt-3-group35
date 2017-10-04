@@ -1,66 +1,55 @@
-import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import ScheduleScreen from './containers/ScheduleScreen'
+import TodoScreen from './containers/TodoScreen'
+import NotesScreen from './containers/NotesScreen'
+
+class HomeScreen extends React.Component {
+    static navigationOptions = {
+        title: 'SaveMyLife.com',
+        headerStyle: { backgroundColor: '#212a34', elevation: 6,},
+        headerTitleStyle: { alignSelf: 'center', color: '#fff', paddingTop: 5},
+        tintColor: '#fff'
+    };
+    render() {
+        const { navigate } = this.props.navigation;
+        return (
+            <View style={styles.container}>
+                <TouchableOpacity onPress={() => navigate('Schedule')} style={styles.schedule}>
+                    <Text style={styles.buttonText}>Schedule</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigate('Todo')} style={styles.todo}>
+                    <Text style={styles.buttonText}>Todo</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigate('Notes')} style={styles.notes}>
+                    <Text style={styles.buttonText}>Note</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+}
+
+const NativeApp = StackNavigator({
+    Home: { screen: HomeScreen },
+    Schedule: { screen: ScheduleScreen },
+    Todo: { screen: TodoScreen },
+    Notes: { screen: NotesScreen }
+});
 
 export default class App extends React.Component {
-  render() {
-    return (
-        <View style={styles.content}>
-          <View style={styles.headerContainer}>
-            <Text style={styles.text}>SaveMyLife.com</Text>
-          </View>
-          <View style={styles.back}>
-              <View style={styles.scheduleContainer}>
-                  <View style={styles.scheduleBoxHeader}>
-                      <Text style={styles.innerText}>Schedule</Text>
-                  </View>
-              </View>
-              <View style={styles.todoContainer}>
-                  <View style={styles.todoBoxHeader}>
-                      <Text style={styles.innerText}>2do</Text>
-                  </View>
-              </View>
-              <View style={styles.notesContainer}>
-                  <View style={styles.notesBoxHeader}>
-                      <Text style={styles.innerText}>Notes</Text>
-                  </View>
-              </View>
-          </View>
-        </View>
-    );
-  }
+    render() {
+        return <NativeApp />;
+    }
 }
 
 const styles = StyleSheet.create({
-    content: {
+    container: {
         flex: 1,
-    },
-
-    headerContainer: {
-        backgroundColor: '#212a34',
-        elevation: 6,
-        paddingTop: 30,
-        paddingBottom: 10,
-        shadowColor: 'rgba(0,0,0,0.3)',
-        shadowOpacity: 3,
-        shadowOffset: {
-            height: 0,
-            width: 1
-        },
-    },
-
-    text: {
-        color: '#fff',
-        textAlign: 'center',
-        fontFamily: 'sans-serif',
-        fontWeight: 'bold'
-    },
-
-    back: {
         backgroundColor: "#666",
-        flex: 1
     },
 
-    scheduleContainer: {
+    schedule: {
         backgroundColor: "#cfc",
         marginLeft: '3%',
         marginRight: '3%',
@@ -78,7 +67,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    todoContainer: {
+    todo: {
         backgroundColor: "#ccf",
         marginLeft: '3%',
         marginRight: '3%',
@@ -96,7 +85,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    notesContainer: {
+    notes: {
         backgroundColor: "#FFFFA5",
         marginLeft: '3%',
         marginRight: '3%',
@@ -115,7 +104,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    innerText: {
+    buttonText: {
         fontSize: 40,
         color: '#212a34'
     }

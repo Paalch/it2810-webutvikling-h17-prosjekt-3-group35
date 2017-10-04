@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, AppRegistry, Button} from 'react-native';
+import Schedule from './containers/schedule/Schedule'
+import { StackNavigator } from "react-navigation";
 
 export default class App extends React.Component {
   render() {
+    const {navigate} = this.props;
     return (
         <View style={styles.content}>
           <View style={styles.headerContainer}>
@@ -10,9 +13,9 @@ export default class App extends React.Component {
           </View>
           <View style={styles.back}>
               <View style={styles.scheduleContainer}>
-                  <View style={styles.scheduleBoxHeader}>
+                  <Button style={styles.scheduleBoxHeader} onPress={() => navigate('Schedule')} title={'test'}>
                       <Text style={styles.innerText}>Schedule</Text>
-                  </View>
+                  </Button>
               </View>
               <View style={styles.todoContainer}>
                   <View style={styles.todoBoxHeader}>
@@ -29,6 +32,13 @@ export default class App extends React.Component {
     );
   }
 }
+
+const ModalStack = StackNavigator({
+    Schedule: {
+        screen: Schedule,
+    },
+});
+
 
 const styles = StyleSheet.create({
     content: {
@@ -120,3 +130,5 @@ const styles = StyleSheet.create({
         color: '#212a34'
     }
 });
+
+AppRegistry.registerComponent('App', () => ModalStack);

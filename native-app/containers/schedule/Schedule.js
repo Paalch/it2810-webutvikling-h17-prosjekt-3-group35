@@ -1,10 +1,7 @@
 import React from 'react';
-import StyleSheet from 'react-native';
-import Text from 'react-native';
-import View from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 
-class Schedule extends React.Component {
-  render () {
+const Schedule = () => {
     return (
       <View Style={styles.scheduleContainer}>
         <View Style={styles.boxHeader}>
@@ -15,8 +12,7 @@ class Schedule extends React.Component {
         </View>
       </View>
     )
-  }
-}
+};
 
 const styles = StyleSheet.create({
   scheduleContainer: {

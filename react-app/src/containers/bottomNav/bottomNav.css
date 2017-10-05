@@ -2,6 +2,7 @@
     background: #212a34;
     margin: 15px 0px;
     height: 25px;
+    cursor: pointer;
 }
 
 .item-container {
@@ -10,6 +11,7 @@
 
 #todo {
     background-color: #ccf;
+    border-right: 1px solid black;
 }
 
 #notes {
@@ -18,11 +20,13 @@
 
 #schedule {
     background-color: #cfc;
+    border-right: 1px solid black;
 }
 
 .nav-items{
     color: black;
     height: 45px;
     text-align: center;
+    border-top: 1px solid black;
 }
 

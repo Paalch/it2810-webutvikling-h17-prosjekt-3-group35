@@ -34,7 +34,7 @@ class Notes extends React.Component {
             <TextareaAutosize onChange={this.updateTextField} value={this.state.note} id={"note"} className={"note-field"} maxRows={7} placeholder={'.............'}></TextareaAutosize>
           </Col>
           <Col md={4} mdOffset={8} sm={5} smOffset={7} xs={5} xsOffset={7}>
-            <Button bsStyle={'warning'} bsSize={'xs'} id="deleteBtn" block onClick={this.reset}>Erase</Button>
+            <Button bsStyle={'warning'} bsSize={'xs'} id="deleteBtn" block onClick={this.reset}>Erease</Button>
           </Col>
         </Row>
       </div>

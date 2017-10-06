@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class TodoElement extends Component {
 
@@ -14,5 +15,9 @@ class TodoElement extends Component {
     )
   }
 }
+
+TodoElement.propTypes = {
+  text: PropTypes.string.isRequired
+};
 
 export default TodoElement;

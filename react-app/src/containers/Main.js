@@ -11,9 +11,9 @@ class Main extends Component {
   constructor(){
     super();
     this.state = {
-      schedule: ' ',
-      todo: ' ',
-      notes: ' '
+      schedule: '',
+      todo: 'hidden-xs',
+      notes: 'hidden-xs'
     }
     this.openSchedule = this.openSchedule.bind(this)
     this.openNotes = this.openNotes.bind(this)
@@ -26,11 +26,11 @@ class Main extends Component {
   }
 
   openTodo(){
-    this.setState({schedule:'  hidden-xs', todo:' ', notes:'  hidden-xs' })
+    this.setState({schedule:'hidden-xs', todo:'', notes:'hidden-xs' })
   }
 
   openNotes(){
-    this.setState({schedule:'  hidden-xs', todo:'  hidden-xs', notes:' ' })
+    this.setState({schedule: 'hidden-xs', todo:'hidden-xs', notes:''})
   }
   
   render () {
@@ -40,7 +40,9 @@ class Main extends Component {
         <Grid>
           <Row className={'main-row'}>
             <Col sm={7} xs={12} className={'left-main'}>
-              <Schedule className={this.state.schedule}/>
+              <Col className={this.state.schedule}>
+                <Schedule/>
+              </Col>
             </Col>
             <Col sm={5} xs={12} className={'right-main'}>
               <Col className={this.state.todo}>
@@ -54,12 +56,9 @@ class Main extends Component {
           <Row className ={'footer-row'}>
             <Col lgHidden mdHidden smHidden>
               <BottomNav
-                  schedule={this.state.schedule}
                   openSchedule={this.openSchedule}
-                  notes={this.state.notes}
                   openNotes={this.openNotes}
-                  todo={this.state.todo}
-                  openTodo={this.openNotes}/>
+                  openTodo={this.openTodo}/>
             </Col>
           </Row>
         </Grid>

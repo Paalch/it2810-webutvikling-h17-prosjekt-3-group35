@@ -1,32 +1,25 @@
 .nav-container {
-    background: #212a34;
-    margin: 15px 0px;
-    height: 25px;
-    cursor: pointer;
+  margin-left: 0px;
+  height: 7vh;
+  width: 100%;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
 }
 
-.item-container {
-    margin: 0px;
+.nav-item {
+  height: 100%;
 }
 
 #todo {
-    background-color: #ccf;
-    border-right: 1px solid black;
+  background-color: #ccf;
 }
 
 #notes {
-    background-color: #ffffa5;
+  background-color: #ffffa5;
 }
 
 #schedule {
-    background-color: #cfc;
-    border-right: 1px solid black;
-}
-
-.nav-items{
-    color: black;
-    height: 45px;
-    text-align: center;
-    border-top: 1px solid black;
+  background-color: #cfc;
 }
 

@@ -10,37 +10,33 @@ class Schedule extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            appointments: [],
-            newAppointmentStart: false,
+            openCreateAppointment: false
         };
-        this.createAppointment = this.createAppointment.bind(this);
+        this.openCreateAppointment = this.openCreateAppointment.bind(this);
     }
 
-    createAppointment() {
-        this.setState({newAppointmentStart: !this.state.newAppointmentStart});
+    openCreateAppointment() {
+        this.setState({openCreateAppointment: !this.state.openCreateAppointment});
     }
 
     render() {
         let newBox = null;
-        if (this.state.newAppointmentStart) {
+        if (this.state.openCreateAppointment) {
             newBox = <CreateAppointment/>;
         }
         return (
             <div>
-
                 <div className={'schedule-container box'}>
                     <Row className={'box-header'}>
                         <h1>Schedule</h1>
                     </Row>
                     <Row className={'box-body'}>
                         <button
-                            onClick={this.createAppointment}
+                            onClick={this.openCreateAppointment}
                         >Create appointment
                         </button>
                     </Row>
                     {newBox}
-                </div>
-                <div>
                 </div>
             </div>
 

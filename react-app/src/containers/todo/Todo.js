@@ -7,10 +7,10 @@ class Todo extends React.Component {
   render () {
     return (
       <div className={'todo-container box'}>
-        <Row className={'box-header'}>
+        <Row className={'todo-header'}>
           <h1>Todo</h1>
         </Row>
-        <Row className={'box-body'}>
+        <Row className={'todo-body'}>
           <TodoList/>
         </Row>
       </div>

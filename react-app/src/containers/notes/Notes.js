@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap'
 import './notes.css'
 import NoteElement from "./NoteElement";
+import { Row, Col } from 'react-bootstrap';
 
 class Notes extends React.Component {
   constructor() {
@@ -44,11 +45,16 @@ class Notes extends React.Component {
     );
 
     return (
-      <div>
-        <Button bsStyle={'warning'} onClick={this.addNewNote}>+ new note</Button>
-        <div>
-          { content }
-        </div>
+      <div className={'notes-container box'}>
+          <Row className={'notes-header'}>
+            <h1>Notes</h1>
+          </Row>
+          <Row className={'notes-body'}>
+            <div>
+            { content }
+            </div>
+          </Row>
+        <Button bsStyle={'warning'} onClick={this.addNewNote}>+ New note</Button>
       </div>
     )
   }

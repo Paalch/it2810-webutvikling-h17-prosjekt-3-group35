@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Col, Row, FormControl, Button} from 'react-bootstrap';
 import TodoElement from "./TodoElement";
+import './todo.css';
 
 class TodoList extends Component {
 

@@ -1,26 +1,38 @@
 import React, {Component} from 'react'
-import {Col, Row} from 'react-bootstrap'
+import Appointment from "./Appointment";
 
 
 class AppointmentList extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            appointments: []
-        }
+            appointments: this.props.appointments
+        };
+        this.receiveAppointment = this.receiveAppointment.bind(this);
 
     }
 
-    render(){
-        let content = this.state.appointments.map();
+    receiveAppointment(appointments) {
+        this.state = {
+            appointments: appointments
+        };
+        this.props.onAppointments(this.state.appointments);
+    }
 
-        return(
-          <div>
-              <div>
-                  {content}
-              </div>
-          </div>
+    render() {
+        console.log("AppL " + this.state.appointments);
+
+        const appointments = (this.state.appointments).sort((a, b) => a[1] > b[1]).map((apps, i) =>
+            <Appointment
+                text={apps[0]} moment={apps[1]} key={i} id={apps[2]} appointments={this.state.appointments}
+                receiveAppointment={this.receiveAppointment}/>);
+        return (
+            <div>
+                <div>
+                    {appointments}
+                </div>
+            </div>
         );
 
     }

@@ -45,7 +45,7 @@ export default class TodoList extends React.Component {
                         <TextInput
                             style={styles.formInput}
                             type={'text'}
-                            placeholder={'.............................................................'}
+                            placeholder={'--------------------------'}
                             value={this.state.text}
                             onChange={this.updateTextField}
                         />
@@ -70,6 +70,10 @@ const styles = StyleSheet.create({
 
     todos: {
         marginTop: 10,
+    },
+
+    formInput: {
+
     },
 
 });

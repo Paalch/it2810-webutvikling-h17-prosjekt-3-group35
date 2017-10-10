@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import NoteElement from './NoteElement';
 
 export default class NotesScreen extends React.Component {
     static navigationOptions = {
@@ -50,10 +51,10 @@ export default class NotesScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <div style={styles.notesBody}>
+                <ScrollView style={styles.notesBody}>
                    { content }
-                </div>
-                <Button bsStyle={'warning'} onClick={this.addNewNote}>+ New note</Button>
+                </ScrollView>
+                <Button onPress={this.addNewNote} title={"+ New Note"}/>
             </View>
         )
     }
@@ -62,6 +63,8 @@ export default class NotesScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#666",
+        flex: 1,
+        padding: 10,
     },
 });
 

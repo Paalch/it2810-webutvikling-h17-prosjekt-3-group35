@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 export default class TodoElement extends React.Component {
     render() {
         return (
-            <View style={styles.todoElement}>
+            <View>
                 <input
-                    style={styles.checkboxRound}
+                    style={styles.todoElement}
                     type={'checkbox'}
                     onProgress={() => this.props.removeElement(this.props.text)}/>
                 <label>{this.props.text}</label>
@@ -21,10 +21,8 @@ TodoElement.propTypes = {
 };
 
 const styles = StyleSheet.create({
-    checkboxRound: {
-        width: "1.3em",
-        height: "1.3em",
-        backgroundColor: "white",
-    }
+    todoElement: {
+        fontWeight: "normal",
+    },
 });
 

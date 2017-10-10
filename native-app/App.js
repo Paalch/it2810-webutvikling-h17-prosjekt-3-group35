@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
 
     schedule: {
-        backgroundColor: "#cfc",
+        backgroundColor: "#cf7",
         marginLeft: '3%',
         marginRight: '3%',
         marginTop: '3%',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     },
 
     todo: {
-        backgroundColor: "#ccf",
+        backgroundColor: "#cbf",
         marginLeft: '3%',
         marginRight: '3%',
         marginTop: '3%',
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
 
     notes: {
-        backgroundColor: "#FFFFA5",
+        backgroundColor: "#FFFF99",
         marginLeft: '3%',
         marginRight: '3%',
         marginTop: '3%',

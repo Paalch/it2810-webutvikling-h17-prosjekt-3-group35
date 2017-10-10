@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
     },
 
     schedule: {
-        backgroundColor: "#cfc",
-        maxHeight: "100%",
+        backgroundColor: "#cf7",
     },
 });

@@ -11,10 +11,12 @@
 }
 
 .left-main {
+  max-height: 80vh;
   padding: 0px;
 }
 
 .right-main {
+  max-height: 80vh;
   padding: 0px;
 }
 
@@ -25,5 +27,23 @@
 .box {
   margin-right: 1vh;
   margin-left: 1vh;
-  margin-bottom: 2vh;
+  opacity: 1;
+  overflow: scroll;
 }
+
+@media (max-width: 768px) {
+  .box {
+    height: 75vh !important;
+  }
+}
+
+.box-header {
+  margin: 0px;
+  padding: 10px 20px;
+  color: #ffffff;
+}
+
+.box-body {
+  margin: 20px 10px;
+}
+

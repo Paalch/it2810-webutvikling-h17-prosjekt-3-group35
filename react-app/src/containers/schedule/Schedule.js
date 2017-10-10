@@ -34,7 +34,7 @@ class Schedule extends Component {
         return (
             <div>
                 <div className={'schedule-container box'}>
-                    <Row className={'box-header'}>
+                    <Row className={'box-header schedule-header'}>
                         <h1>Schedule</h1>
                     </Row>
                     <Row>
@@ -47,7 +47,6 @@ class Schedule extends Component {
                     </Row>
                 </div>
             </div>
-
         )
     }
 }

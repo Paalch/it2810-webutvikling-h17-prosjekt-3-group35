@@ -8,7 +8,7 @@ class NoteElement extends React.Component {
 
   render () {
     return (
-      <div className={'inner-notes-container box'}>
+      <div className={'inner-notes-container'}>
         <Button
           onClick={() => this.props.deleteNote(this.props.note.id)}
           className={'remove-note'}>

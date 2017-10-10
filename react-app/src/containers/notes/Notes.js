@@ -14,6 +14,16 @@ class Notes extends React.Component {
     this.addNewNote = this.addNewNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
     this.updateTextField = this.updateTextField.bind(this);
+    this.save = this.save.bind(this);
+    this.load = this.load.bind(this);
+  }
+
+  save() {
+    localStorage.setItem('notes', JSON.stringify(this.state));
+  }
+
+  load() {
+    localStorage.getItem('notes');
   }
 
   addNewNote() {
@@ -46,15 +56,19 @@ class Notes extends React.Component {
 
     return (
       <div className={'notes-container box'}>
-          <Row className={'notes-header'}>
+        <Row className={'notes-header box-header'}>
+          <Col xs={7} style={{paddingLeft: '0px'}}>
             <h1>Notes</h1>
-          </Row>
-          <Row className={'notes-body'}>
-            <div>
-            { content }
-            </div>
-          </Row>
-        <Button bsStyle={'warning'} onClick={this.addNewNote}>+ New note</Button>
+          </Col>
+          <Col xs={5}>
+            <Button bsStyle={'warning'} onClick={this.addNewNote}>+ New note</Button>
+          </Col>
+        </Row>
+        <Row className={'notes-body box-body'}>
+          <div>
+          { content }
+          </div>
+        </Row>
       </div>
     )
   }

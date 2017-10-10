@@ -10,7 +10,7 @@ class TodoList extends Component {
     this.state = {
       todos: [],
       text: ''
-    }
+    };
     this.updateTextField = this.updateTextField.bind(this);
     this.saveTodo = this.saveTodo.bind(this);
     this.removeElement = this.removeElement.bind(this);
@@ -20,10 +20,11 @@ class TodoList extends Component {
     this.setState({text: e.target.value});
   }
 
-  removeElement(todo) {
+  removeElement(id) {
+    console.log(id);
     this.setState({
       todos: this.state.todos.filter((t) =>
-        t !== todo
+        id !== t.id
       )
     });
   }
@@ -33,12 +34,13 @@ class TodoList extends Component {
     if (todoValue.length === 0) {
       return;
     }
-    this.setState({todos: this.state.todos.concat(todoValue), text: ''});
+    const newTodo = {id: Date.now(), value: todoValue};
+    this.setState({todos: this.state.todos.concat(newTodo), text: ''});
   };
 
   render() {
-    const content = this.state.todos.map((todo, i) =>
-      <TodoElement text={todo} key={i} removeElement={this.removeElement}/>
+    const content = this.state.todos.map((element, i) =>
+      <TodoElement todo={element} key={i} removeElement={this.removeElement}/>
     );
 
     return (

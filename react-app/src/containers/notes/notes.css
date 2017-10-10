@@ -1,26 +1,18 @@
 .notes-container {
   background-color: #212a33;
-  padding: 20px;
   box-shadow: 6px 6px 8px rgba(33,33,33,.7);
-  opacity: 1;
-  max-height: 40vh;
-  overflow: scroll;
+  height: 45vh;
 }
 
 .inner-notes-container {
   background-color: #ffffa5;
   padding: 20px;
+  margin-bottom: 10px;
   box-shadow: 6px 6px 8px rgba(33,33,33,.7);
 }
 
 .notes-header {
-  margin-bottom: 3%;
-  padding-left: 20px;
-  padding-top: 10px;
   background-color: #F5D76E;
-  margin-top: -20px;
-  margin-left: -20px;
-  margin-right: -20px;
 }
 
 .note-field{
@@ -48,9 +40,4 @@
   box-shadow: none !important;
   border: none !important;
   outline: none !important;
-}
-
-Button {
-  float: right;
-  margin-right: -9px;
 }

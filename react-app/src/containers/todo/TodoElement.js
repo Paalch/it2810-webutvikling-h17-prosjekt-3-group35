@@ -9,15 +9,16 @@ class TodoElement extends Component {
         <input
           className={'checkbox-round'}
           type={'checkbox'}
-          onClick={() => this.props.removeElement(this.props.text)}/>
-        <label>{this.props.text}</label>
+          checked={''}
+          onClick={() => this.props.removeElement(this.props.todo.id)}/>
+        <label>{this.props.todo.value}</label>
       </div>
     )
   }
 }
 
 TodoElement.propTypes = {
-  text: PropTypes.string.isRequired
+
 };
 
 export default TodoElement;

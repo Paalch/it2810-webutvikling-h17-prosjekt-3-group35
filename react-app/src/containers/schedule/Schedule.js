@@ -1,8 +1,9 @@
-import React, {Component, PropTypes} from 'react';
-import {Row, Col} from 'react-bootstrap'
+import React, {Component} from 'react';
+import {Row} from 'react-bootstrap'
 
 import './schedule.css';
 import CreateAppointment from "./CreateAppointment";
+import AppointmentList from "./AppointmentList";
 
 
 class Schedule extends Component {
@@ -10,33 +11,40 @@ class Schedule extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            openCreateAppointment: false
+            appointments: []
         };
-        this.openCreateAppointment = this.openCreateAppointment.bind(this);
+        this.handleCreateAppointment = this.handleCreateAppointment.bind(this);
+        this.handleAppointment = this.handleAppointment.bind(this)
     }
 
-    openCreateAppointment() {
-        this.setState({openCreateAppointment: !this.state.openCreateAppointment});
+    handleCreateAppointment(appointments) {
+        this.setState({
+            appointments: appointments
+        });
+    }
+
+    handleAppointment(appointments) {
+        this.setState({
+            appointments: appointments
+        });
     }
 
     render() {
-        let newBox = null;
-        if (this.state.openCreateAppointment) {
-            newBox = <CreateAppointment/>;
-        }
+        console.log("Sche " + this.state.appointments);
         return (
             <div>
                 <div className={'schedule-container box'}>
                     <Row className={'box-header'}>
                         <h1>Schedule</h1>
                     </Row>
-                    <Row className={'box-body'}>
-                        <button
-                            onClick={this.openCreateAppointment}
-                        >Create appointment
-                        </button>
+                    <Row>
+                        <AppointmentList appointments={this.state.appointments}
+                                         onAppointments={this.handleAppointment}/>
                     </Row>
-                    {newBox}
+                    <Row className={'box-body'}>
+                        <CreateAppointment appointments={this.state.appointments}
+                                           onCreateAppointment={this.handleCreateAppointment}/>
+                    </Row>
                 </div>
             </div>
 

@@ -54,7 +54,7 @@ export default class NotesScreen extends React.Component {
                 <ScrollView style={styles.notesBody}>
                    { content }
                 </ScrollView>
-                <Button onPress={this.addNewNote} title={"+ New Note"}/>
+                <Button onPress={this.addNewNote} title={"+ New Note"} color={"#212a34"}/>
             </View>
         )
     }
@@ -64,7 +64,10 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "#666",
         flex: 1,
-        padding: 10,
+        paddingTop: 10,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 6,
     },
 });
 

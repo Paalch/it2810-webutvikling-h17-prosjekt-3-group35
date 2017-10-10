@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import TodoElement from './TodoElement';
 
 export default class TodoList extends React.Component {
@@ -45,14 +45,14 @@ export default class TodoList extends React.Component {
                         <TextInput
                             style={styles.formInput}
                             type={'text'}
-                            placeholder={'--------------------------'}
                             value={this.state.text}
-                            onChange={this.updateTextField}
+                            onChange={this.updateTextField}multiline={true}
+                            underlineColorAndroid='rgba(0,0,0,0)'
                         />
                     </View>
-                    <View>
-                        <Button onPress={this.saveTodo} title={'+'}/>
-                    </View>
+                    <TouchableOpacity style={styles.addButton} onPress={this.saveTodo}>
+                        <Text>+</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.todos}>
                     {content}
@@ -72,8 +72,12 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
 
-    formInput: {
-
+    addButton: {
+        alignSelf: "flex-end",
+        alignItems: "flex-end",
+        paddingLeft: 10,
+        paddingRight: 10,
+        width: "10%",
     },
 
 });

@@ -6,7 +6,7 @@ export default class NotesElement extends React.Component {
         return (
             <View style={styles.innerNotesContainer}>
                 <TouchableOpacity style={styles.deleteButton} onPress={() => this.props.deleteNote(this.props.note.id)}>
-                    <Text style={styles.innerText}>X</Text>
+                    <Text>X</Text>
                 </TouchableOpacity>
                     <View>
                      <TextInput

@@ -11,10 +11,12 @@
 }
 
 .left-main {
+  height: 85vh;
   padding: 0px;
 }
 
 .right-main {
+  height: 85vh;
   padding: 0px;
 }
 
@@ -25,5 +27,17 @@
 .box {
   margin-right: 1vh;
   margin-left: 1vh;
-  margin-bottom: 2vh;
+  opacity: 1;
+  overflow: scroll;
 }
+
+.box-header {
+  margin-bottom: 3%;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.box-body {
+  margin: 20px 10px;
+}
+

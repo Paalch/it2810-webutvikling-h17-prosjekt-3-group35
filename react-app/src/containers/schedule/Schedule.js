@@ -6,10 +6,10 @@ class Schedule extends React.Component {
   render () {
     return (
       <div className={'schedule-container box'}>
-        <Row className={'schedule-header'}>
+        <Row className={'schedule-header box-header'}>
           <h1>Schedule</h1>
         </Row>
-        <Row className={'box-body'}>
+        <Row className={'box-body box-body'}>
           <p>Lorem ipsum</p>
         </Row>
       </div>

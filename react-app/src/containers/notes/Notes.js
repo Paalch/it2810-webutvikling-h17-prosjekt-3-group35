@@ -56,15 +56,19 @@ class Notes extends React.Component {
 
     return (
       <div className={'notes-container box'}>
-          <Row className={'notes-header box-header'}>
+        <Row className={'notes-header box-header'}>
+          <Col xs={7} style={{paddingLeft: '0px'}}>
             <h1>Notes</h1>
-          </Row>
-          <Row className={'notes-body box-body'}>
-            <div>
-            { content }
-            </div>
-          </Row>
-        <Button bsStyle={'warning'} onClick={this.addNewNote}>+ New note</Button>
+          </Col>
+          <Col xs={5}>
+            <Button bsStyle={'warning'} onClick={this.addNewNote}>+ New note</Button>
+          </Col>
+        </Row>
+        <Row className={'notes-body box-body'}>
+          <div>
+          { content }
+          </div>
+        </Row>
       </div>
     )
   }

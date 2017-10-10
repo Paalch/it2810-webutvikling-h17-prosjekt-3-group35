@@ -1,0 +1,25 @@
+.nav-container {
+  margin-left: 0px;
+  height: 7vh;
+  width: 100%;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+}
+
+.nav-item {
+  height: 100%;
+}
+
+#todo {
+  background-color: #ccf;
+}
+
+#notes {
+  background-color: #ffffa5;
+}
+
+#schedule {
+  background-color: #cfc;
+}
+

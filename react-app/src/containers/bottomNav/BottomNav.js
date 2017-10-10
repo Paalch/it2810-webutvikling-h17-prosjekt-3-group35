@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './bottomNav.css';
 import {Row, Col} from 'react-bootstrap';
 
 
-export class BottomNav extends React.Component {
+export class BottomNav extends Component {
 
   render() {
     return (

@@ -1,7 +1,7 @@
 .notes-container {
   background-color: #212a33;
   box-shadow: 6px 6px 8px rgba(33,33,33,.7);
-  height: 40vh;
+  height: 45vh;
 }
 
 .inner-notes-container {
@@ -40,9 +40,4 @@
   box-shadow: none !important;
   border: none !important;
   outline: none !important;
-}
-
-Button {
-  float: right;
-  margin-right: -9px;
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Col, Row, FormControl, Button, Modal} from 'react-bootstrap'
+import {Col, Row, FormControl, Button, Modal, FormGroup } from 'react-bootstrap'
 import moment from 'moment'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'rc-time-picker';
@@ -18,12 +18,14 @@ class CreateAppointment extends Component {
       details: '',
       label: '',
       idCounter: 0,
-      appointments: this.props.appointments
+      appointments: this.props.appointments,
+      color: 'blue'
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.createAppointment = this.createAppointment.bind(this);
     this.updateDetails = this.updateDetails.bind(this);
+    this.setColor = this.setColor.bind(this);
   }
 
   handleDateChange(date) {
@@ -42,6 +44,10 @@ class CreateAppointment extends Component {
     this.setState({
       details: details.target.value
     });
+  }
+
+  setColor(e) {
+    console.log(e);
   }
 
 
@@ -98,6 +104,53 @@ class CreateAppointment extends Component {
             </Row>
             <Row className={'modal-row'}>
               <Col xs={12}>
+                <p>Label:</p>
+              </Col>
+              <FormGroup>
+                <Col xs={2}>
+                  <input
+                    id={'label1'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+                <Col xs={2}>
+                  <input
+                    id={'label2'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+                <Col xs={2}>
+                  <input
+                    id={'label3'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+                <Col xs={2}>
+                  <input
+                    id={'label4'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+                <Col xs={2}>
+                  <input
+                    id={'label5'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+              </FormGroup>
+            </Row>
+            <Row className={'modal-row'}>
+              <Col xs={12}>
                 <p>Schedule description:</p>
               </Col>
               <Col sm={9}>
@@ -108,7 +161,7 @@ class CreateAppointment extends Component {
                   onChange={this.updateDetails}
                 />
               </Col>
-              <Col sm={3}>
+              <Col sm={3} xs={6}>
                 <Button
                   onClick={this.createAppointment}
                   bsStyle={'primary'}

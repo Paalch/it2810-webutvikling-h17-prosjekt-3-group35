@@ -11,7 +11,6 @@ class AppointmentList extends Component {
       appointments: this.props.appointments
     };
     this.receiveAppointment = this.receiveAppointment.bind(this);
-
   }
 
   receiveAppointment(appointments) {

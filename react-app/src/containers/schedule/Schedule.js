@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Row, Col, Button } from 'react-bootstrap'
+import React, {Component} from 'react';
+import {Row, Col, Button} from 'react-bootstrap'
 import CreateAppointment from "./CreateAppointment";
 import AppointmentList from "./AppointmentList";
 import './schedule.css';
@@ -13,10 +13,32 @@ class Schedule extends Component {
       appointments: [],
       showModal: false
     };
+    this.load = this.load.bind(this);
+    this.save = this.save.bind(this);
     this.handleCreateAppointment = this.handleCreateAppointment.bind(this);
     this.handleAppointment = this.handleAppointment.bind(this);
     this.openNewAppointment = this.openNewAppointment.bind(this);
     this.closeNewAppointment = this.closeNewAppointment.bind(this);
+  }
+
+  componentDidMount() {
+    const data = this.load();
+    if (data !== null) {
+      this.setState(() => data);
+    }
+  }
+
+  componentDidUpdate() {
+    this.save();
+  }
+
+  save() {
+    localStorage.setItem('schedule', JSON.stringify(this.state));
+  }
+
+  load() {
+    return 'schedule' in localStorage ?
+      JSON.parse(localStorage.getItem('schedule')) : null;
   }
 
   handleCreateAppointment(appointments) {
@@ -40,16 +62,6 @@ class Schedule extends Component {
   }
 
   render() {
-
-    const createAppointment =
-      <Row>
-        <CreateAppointment
-          appointments={this.state.appointments}
-          onCreateAppointment={this.handleCreateAppointment}
-          showModal={this.state.showModal}
-          closeNewAppointment={this.closeNewAppointment}/>
-      </Row>;
-
     return (
       <div>
         <div className={'schedule-container box'}>
@@ -68,10 +80,16 @@ class Schedule extends Component {
           </Row>
           <Row className={'box-body'}>
             <Col>
-            { createAppointment }
-                <AppointmentList
-                    appointments={this.state.appointments}
-                    onAppointments={this.handleAppointment}/>
+              <Row>
+                <CreateAppointment
+                  appointments={this.state.appointments}
+                  onCreateAppointment={this.handleCreateAppointment}
+                  showModal={this.state.showModal}
+                  closeNewAppointment={this.closeNewAppointment}/>
+              </Row>
+              <AppointmentList
+                appointments={this.state.appointments}
+                onAppointments={this.handleAppointment}/>
             </Col>
           </Row>
         </div>

@@ -14,7 +14,7 @@ class NoteElement extends React.Component {
           className={'remove-note'}>
           X
         </Button>
-        <Row className={'notes box-body'}>
+        <Row className={'notes'}>
           <Col md={12}>
             <TextareaAutosize
               value={this.props.note.text}

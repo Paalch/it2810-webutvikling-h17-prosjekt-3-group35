@@ -10,7 +10,8 @@
   background-color: #1c588c;
 }
 
-.schedule-button:active, .schedule-button:focus {
+.schedule-button:active, .schedule-button:focus, .schedule-button:active {
   outline: none !important;
   border: none !important;
+  background-color: #337ab7 !important;
 }

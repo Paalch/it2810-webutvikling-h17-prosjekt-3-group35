@@ -33,16 +33,15 @@ class Appointment extends Component {
           let appointments = this.state.appointments;
           for (let i = 0; i < appointments.length; i++) {
               if(appointments[i][2].format("DD.MM.YYYY HH:mm") < moment().subtract(1, "hours").format("MM.DD.YYYY HH:mm")){
-                  appointments.splice(i, 1)
+                  appointments.splice(i, 1);
+                  this.setState({
+                      appointments: appointments
+                  });
+                  this.props.receiveAppointment(this.state.appointments);
               }
           }
-          this.setState({
-              appointments: appointments
-          });
-
-          this.props.receiveAppointment(this.state.appointments);
       }
-    }, 1000);
+    }, 60000);
 
 
 

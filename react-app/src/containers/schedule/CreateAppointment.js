@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Col, Row, FormControl, Button, Modal } from 'react-bootstrap'
+import {Col, Row, FormControl, Button, Modal} from 'react-bootstrap'
 import moment from 'moment'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'rc-time-picker';
@@ -77,36 +77,26 @@ class CreateAppointment extends Component {
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Row>
-              <Col xs={3}>
-                <DatePicker
-                  selected={this.state.date}
-                  onChange={this.handleDateChange}
-                  dateFormat={"DD.MM.YYYY"}
-                />
-              </Col>
-              <Col xs={3}>
-                <TimePicker
-                  showSecond={false}
-                  defaultValue={this.state.time}
-                  onChange={this.handleTimeChange}
-                />
-              </Col>
-              <Col xs={4}>
-                <FormControl
-                  type={'text'}
-                  placeholder={''}
-                  value={this.state.details}
-                  onChange={this.updateDetails}
-                />
-              </Col>
-              <Col xs={1}>
-                <Button
-                  onClick={this.createAppointment}>
-                  Create schedule!
-                </Button>
-              </Col>
-            </Row>
+            <DatePicker
+              selected={this.state.date}
+              onChange={this.handleDateChange}
+              dateFormat={"DD.MM.YYYY"}
+            />
+            <TimePicker
+              showSecond={false}
+              defaultValue={this.state.time}
+              onChange={this.handleTimeChange}
+            />
+            <FormControl
+              type={'text'}
+              placeholder={''}
+              value={this.state.details}
+              onChange={this.updateDetails}
+            />
+            <Button
+              onClick={this.createAppointment}>
+              Create schedule!
+            </Button>
           </Modal.Body>
         </Modal>
       </div>

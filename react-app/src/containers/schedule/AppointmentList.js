@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Appointment from "./Appointment";
-import { Row, Col} from 'react-bootstrap'
 
 
 

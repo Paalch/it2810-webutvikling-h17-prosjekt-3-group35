@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import ScheduleScreen from './containers/ScheduleScreen'
-import TodoScreen from './containers/TodoScreen'
-import NotesScreen from './containers/NotesScreen'
+import ScheduleScreen from './containers/schedule/ScheduleScreen'
+import TodoScreen from './containers/todo/TodoScreen'
+import NotesScreen from './containers/notes/NotesScreen'
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
         title: 'SaveMyLife.com',
-        headerStyle: { backgroundColor: '#212a34', elevation: 6,},
-        headerTitleStyle: { alignSelf: 'center', color: '#fff', paddingTop: 5},
+        headerStyle: { backgroundColor: '#212a34', elevation: 6, paddingTop: 6,},
+        headerTitleStyle: { alignSelf: 'center', color: '#fff',},
         tintColor: '#fff'
     };
     render() {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
 
     schedule: {
-        backgroundColor: "#cfc",
+        backgroundColor: "#cf7",
         marginLeft: '3%',
         marginRight: '3%',
         marginTop: '3%',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     },
 
     todo: {
-        backgroundColor: "#ccf",
+        backgroundColor: "#cbf",
         marginLeft: '3%',
         marginRight: '3%',
         marginTop: '3%',
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
 
     notes: {
-        backgroundColor: "#FFFFA5",
+        backgroundColor: "#FFFF99",
         marginLeft: '3%',
         marginRight: '3%',
         marginTop: '3%',

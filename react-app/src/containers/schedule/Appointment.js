@@ -3,61 +3,74 @@ import {Button} from 'react-bootstrap'
 import "./schedule.css"
 import moment from 'moment'
 
+const firstBy = require('thenby');
+
+
 
 class Appointment extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      appointments: this.props.appointments
-    };
-    this.deleteAppointment = this.deleteAppointment.bind(this);
-  }
-
-  deleteAppointment() {
-    let appointments = this.state.appointments;
-    for (let i = 0; i < appointments.length; i++) {
-      if (appointments[i].includes(this.props.id)) {
-        appointments.splice(i, 1);
-      }
+    constructor(props) {
+        super(props);
+        this.state = {
+            appointments: this.props.appointments
+        };
+        this.deleteAppointment = this.deleteAppointment.bind(this);
     }
-    this.setState({
-      appointments: appointments
-    });
 
-    this.props.receiveAppointment(this.state.appointments);
-  }
-
-  interval = setInterval(() => {
-    if (this.state.appointments.length > 0) {
-      let appointments = this.state.appointments;
-      for (let i = 0; i < appointments.length; i++) {
-        if (appointments[i][2].format("DD.MM.YYYY HH:mm") < moment().subtract(1, "hours").format("MM.DD.YYYY HH:mm")) {
-          appointments.splice(i, 1);
-          this.setState({
-            appointments: appointments
-          });
-          this.props.receiveAppointment(this.state.appointments);
+    deleteAppointment() {
+        let appointments = this.state.appointments;
+        for (let i = 0; i < appointments.length; i++) {
+            if (appointments[i].includes(this.props.id)) {
+                appointments.splice(i, 1);
+                break;
+            }
         }
-      }
+        this.setState({
+            appointments: appointments
+        });
+
+        this.props.receiveAppointment(this.state.appointments);
     }
-  }, 60000);
 
 
-  render() {
-    return (
-      <div className={'appointment-container'} style={{backgroundColor: this.props.color}}>
-        <label className={"appointment-content"}>{this.props.time}</label>
-        <label>{this.props.text}</label>
-        <Button
-          className={"delete-appointment"}
-          onClick={this.deleteAppointment}
-          style={{backgroundColor: this.props.color}}>
-          X
-        </Button>
-      </div>
-    );
-  }
+    componentDidMount() {
+        this.interval = setInterval(() => {
+            if (this.state.appointments.length > 0) {
+                let appointments = this.props.appointments;
+                let appointments2 = this.state.appointments;
+                for (let i = 0; i < appointments.length; i++) {
+                    if (appointments[i][0].isBefore(moment().subtract(1, "hours"))) {
+                        appointments2.splice(i, 1);
+                    }
+                }
+                this.setState({
+                    appointments: appointments2
+                });
+                this.props.receiveAppointment(this.state.appointments);
+            }
+        }, 60000);
+
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+
+    render() {
+        return (
+            <div className={'appointment-container'} style={{backgroundColor: this.props.color}}>
+                <label className={"appointment-content"}>{this.props.time}</label>
+                <label>{this.props.text}</label>
+                <Button
+                    className={"delete-appointment"}
+                    onClick={this.deleteAppointment}
+                    style={{backgroundColor: this.props.color}}>
+                    X
+                </Button>
+            </div>
+        );
+    }
 }
 
 export default Appointment;

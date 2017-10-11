@@ -10,10 +10,13 @@ class Schedule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      appointments: []
+      appointments: [],
+      showModal: false
     };
     this.handleCreateAppointment = this.handleCreateAppointment.bind(this);
-    this.handleAppointment = this.handleAppointment.bind(this)
+    this.handleAppointment = this.handleAppointment.bind(this);
+    this.openNewAppointment = this.openNewAppointment.bind(this);
+    this.closeNewAppointment = this.closeNewAppointment.bind(this);
   }
 
   handleCreateAppointment(appointments) {
@@ -28,7 +31,25 @@ class Schedule extends Component {
     });
   }
 
+  openNewAppointment() {
+    this.setState({showModal: true});
+  }
+
+  closeNewAppointment() {
+    this.setState({showModal: false});
+  }
+
   render() {
+
+    const createAppointment =
+      <Row>
+        <CreateAppointment
+          appointments={this.state.appointments}
+          onCreateAppointment={this.handleCreateAppointment}
+          showModal={this.state.showModal}
+          closeNewAppointment={this.closeNewAppointment}/>
+      </Row>;
+
     return (
       <div>
         <div className={'schedule-container box'}>
@@ -37,15 +58,16 @@ class Schedule extends Component {
               <h1>Schedule</h1>
             </Col>
             <Col xs={5} sm={4} md={3}>
-              <Button bsStyle={'primary'} className={'schedule-button'}>+ New schedule</Button>
+              <Button
+                bsStyle={'primary'}
+                className={'schedule-button'}
+                onClick={this.openNewAppointment}>
+                + New schedule
+              </Button>
             </Col>
           </Row>
           <Row className={'box-body'}>
-            <Row>
-              <CreateAppointment
-                appointments={this.state.appointments}
-                onCreateAppointment={this.handleCreateAppointment}/>
-            </Row>
+            { createAppointment }
             <Row>
               <AppointmentList
                 appointments={this.state.appointments}

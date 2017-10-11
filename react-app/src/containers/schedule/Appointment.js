@@ -16,7 +16,7 @@ class Appointment extends Component {
   deleteAppointment() {
     let appointments = this.state.appointments;
     for (let i = 0; i < appointments.length; i++) {
-      console.log(appointments[i]);
+
       if (appointments[i].includes(this.props.id)) {
         appointments.splice(i, 1);
       }
@@ -24,12 +24,12 @@ class Appointment extends Component {
     this.setState({
       appointments: appointments
     });
+
     this.props.receiveAppointment(this.state.appointments);
   }
 
 
   render() {
-    console.log("Appo " + this.state.appointments);
     return (
       <div className={'appointment-container'}>
         <Row>

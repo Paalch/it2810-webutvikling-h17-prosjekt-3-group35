@@ -37,12 +37,14 @@ class Schedule extends Component {
             <h1>Schedule</h1>
           </Row>
           <Row>
-            <AppointmentList appointments={this.state.appointments}
-                             onAppointments={this.handleAppointment}/>
+            <AppointmentList
+              appointments={this.state.appointments}
+              onAppointments={this.handleAppointment}/>
           </Row>
           <Row className={'box-body'}>
-            <CreateAppointment appointments={this.state.appointments}
-                               onCreateAppointment={this.handleCreateAppointment}/>
+            <CreateAppointment
+              appointments={this.state.appointments}
+              onCreateAppointment={this.handleCreateAppointment}/>
           </Row>
         </div>
       </div>

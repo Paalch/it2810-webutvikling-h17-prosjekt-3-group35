@@ -10,7 +10,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 class CreateAppointment extends Component {
 
-
   constructor(props) {
     super(props);
     this.state = {
@@ -70,8 +69,6 @@ class CreateAppointment extends Component {
   };
 
   render() {
-    console.log("Crea " + this.state.appointments);
-
     return (
       <div className={'appointment-container'}>
         <Row>

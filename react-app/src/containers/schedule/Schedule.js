@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Row } from 'react-bootstrap'
-import './schedule.css';
+import { Row, Col, Button } from 'react-bootstrap'
 import CreateAppointment from "./CreateAppointment";
 import AppointmentList from "./AppointmentList";
+import './schedule.css';
 
 
 class Schedule extends Component {
@@ -29,22 +29,28 @@ class Schedule extends Component {
   }
 
   render() {
-    console.log("Sche " + this.state.appointments);
     return (
       <div>
         <div className={'schedule-container box'}>
           <Row className={'box-header schedule-header'}>
-            <h1>Schedule</h1>
-          </Row>
-          <Row>
-            <AppointmentList
-              appointments={this.state.appointments}
-              onAppointments={this.handleAppointment}/>
+            <Col xs={7} sm={8} md={9} style={{paddingLeft: '0px'}}>
+              <h1>Schedule</h1>
+            </Col>
+            <Col xs={5} sm={4} md={3}>
+              <Button bsStyle={'primary'} className={'schedule-button'}>+ New schedule</Button>
+            </Col>
           </Row>
           <Row className={'box-body'}>
-            <CreateAppointment
-              appointments={this.state.appointments}
-              onCreateAppointment={this.handleCreateAppointment}/>
+            <Row>
+              <CreateAppointment
+                appointments={this.state.appointments}
+                onCreateAppointment={this.handleCreateAppointment}/>
+            </Row>
+            <Row>
+              <AppointmentList
+                appointments={this.state.appointments}
+                onAppointments={this.handleAppointment}/>
+            </Row>
           </Row>
         </div>
       </div>

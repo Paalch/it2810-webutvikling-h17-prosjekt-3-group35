@@ -25,12 +25,12 @@ class AppointmentList extends Component {
     const appointments = (this.state.appointments).sort((a, b) => a[2] > b[2]).map((apps, i) =>
       <Appointment
           content={apps}
-        text={apps[1]} moment={apps[2]} key={i} id={apps[3]} time={apps[0]} appointments={this.state.appointments}
+        text={apps[1]} moment={apps[2]} key={i} id={apps[3]} time={apps[0]} color={apps[4]} appointments={this.state.appointments}
         receiveAppointment={this.receiveAppointment}/>);
     return (
       <div>
         <div>
-              {appointments}
+          {appointments}
         </div>
       </div>
     );

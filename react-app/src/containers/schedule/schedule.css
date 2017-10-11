@@ -23,12 +23,10 @@
 }
 
 .delete-appointment{
-  background-color: inherit !important;
   outline: none !important;
   box-shadow: none;
   border: none;
   float: right;
-  background-color: #337ab7 !important;
 }
 
 .modal-row {
@@ -58,21 +56,21 @@
 }
 
 #label1 {
-  background-color: blue;
+  background-color: #337ab7;
 }
 
 #label2 {
-  background-color: red;
+  background-color: #A25188;
 }
 
 #label3 {
-  background-color: deeppink;
+  background-color: #447884;
 }
 
 #label4 {
-  background-color: rebeccapurple;
+  background-color: #CA6573;
 }
 
 #label5 {
-  background-color: green;
+  background-color: #7B498D;
 }

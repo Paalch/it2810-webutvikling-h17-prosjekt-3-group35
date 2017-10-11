@@ -28,29 +28,33 @@ class Appointment extends Component {
     this.props.receiveAppointment(this.state.appointments);
   }
 
-    interval = setInterval(() => {
-      if (this.state.appointments.length > 0){
-          let appointments = this.state.appointments;
-          for (let i = 0; i < appointments.length; i++) {
-              if(appointments[i][2].format("DD.MM.YYYY HH:mm") < moment().subtract(1, "hours").format("MM.DD.YYYY HH:mm")){
-                  appointments.splice(i, 1);
-                  this.setState({
-                      appointments: appointments
-                  });
-                  this.props.receiveAppointment(this.state.appointments);
-              }
-          }
+  interval = setInterval(() => {
+    if (this.state.appointments.length > 0) {
+      let appointments = this.state.appointments;
+      for (let i = 0; i < appointments.length; i++) {
+        if (appointments[i][2].format("DD.MM.YYYY HH:mm") < moment().subtract(1, "hours").format("MM.DD.YYYY HH:mm")) {
+          appointments.splice(i, 1);
+          this.setState({
+            appointments: appointments
+          });
+          this.props.receiveAppointment(this.state.appointments);
+        }
       }
-    }, 60000);
-
+    }
+  }, 60000);
 
 
   render() {
     return (
-      <div className={'appointment-container'}>
-            <label className={"appointment-content"}>{this.props.time}</label>
-            <label>{this.props.text}</label>
-            <Button className={"delete-appointment"} onClick={this.deleteAppointment}>X</Button>
+      <div className={'appointment-container'} style={{backgroundColor: this.props.color}}>
+        <label className={"appointment-content"}>{this.props.time}</label>
+        <label>{this.props.text}</label>
+        <Button
+          className={"delete-appointment"}
+          onClick={this.deleteAppointment}
+          style={{backgroundColor: this.props.color}}>
+          X
+        </Button>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 .notes-container {
   background-color: #212a33;
   box-shadow: 6px 6px 8px rgba(33,33,33,.7);
-  height: 45vh;
+  height: 48vh;
 }
 
 .inner-notes-container {
@@ -40,4 +40,9 @@
   box-shadow: none !important;
   border: none !important;
   outline: none !important;
+}
+
+.new-note-button:focus, .new-note-button:active {
+  outline: none !important;
+  border: none !important;
 }

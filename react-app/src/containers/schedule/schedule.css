@@ -7,5 +7,10 @@
 }
 
 .schedule-header {
-  background-color: #588c7e;
+  background-color: #1c588c;
+}
+
+.schedule-button:active, .schedule-button:focus {
+  outline: none !important;
+  border: none !important;
 }

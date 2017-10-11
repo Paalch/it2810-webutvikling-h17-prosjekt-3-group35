@@ -61,7 +61,12 @@ class Notes extends React.Component {
             <h1>Notes</h1>
           </Col>
           <Col xs={5}>
-            <Button bsStyle={'warning'} onClick={this.addNewNote}>+ New note</Button>
+            <Button
+              bsStyle={'warning'}
+              onClick={this.addNewNote}
+              className={'new-note-button'}>
+              + New note
+            </Button>
           </Col>
         </Row>
         <Row className={'notes-body box-body'}>

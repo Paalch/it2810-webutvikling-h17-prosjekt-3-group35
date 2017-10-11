@@ -32,14 +32,9 @@ class Appointment extends Component {
   render() {
     return (
       <div className={'appointment-container'}>
-        <Row>
-          <Col>
-            <Button onClick={this.deleteAppointment}>X</Button>
-          </Col>
-          <Col>
+            <label className={"appointment-content"}>{this.props.time}</label>
             <label>{this.props.text}</label>
-          </Col>
-        </Row>
+            <Button className={"delete-appointment"} onClick={this.deleteAppointment}>X</Button>
       </div>
     );
   }

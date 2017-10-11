@@ -21,7 +21,6 @@ class TodoList extends Component {
   }
 
   removeElement(id) {
-    console.log(id);
     this.setState({
       todos: this.state.todos.filter((t) =>
         id !== t.id

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {FormControl, Button, Modal} from 'react-bootstrap'
+import {Col, Row, FormControl, Button, Modal, FormGroup } from 'react-bootstrap'
 import moment from 'moment'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'rc-time-picker';
@@ -18,12 +18,14 @@ class CreateAppointment extends Component {
       details: '',
       label: '',
       idCounter: 0,
-      appointments: this.props.appointments
+      appointments: this.props.appointments,
+      color: 'blue'
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.createAppointment = this.createAppointment.bind(this);
     this.updateDetails = this.updateDetails.bind(this);
+    this.setColor = this.setColor.bind(this);
   }
 
   handleDateChange(date) {
@@ -42,6 +44,10 @@ class CreateAppointment extends Component {
     this.setState({
       details: details.target.value
     });
+  }
+
+  setColor(e) {
+    console.log(e);
   }
 
 
@@ -66,6 +72,7 @@ class CreateAppointment extends Component {
       idCounter: this.state.idCounter + 1
     });
     this.props.onCreateAppointment(this.state.appointments);
+    this.setState({details: ''});
     this.props.closeNewAppointment();
   };
 
@@ -74,29 +81,95 @@ class CreateAppointment extends Component {
       <div className={'appointment-container'}>
         <Modal show={this.props.showModal} onHide={this.props.closeNewAppointment}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Create new event</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <DatePicker
-              selected={this.state.date}
-              onChange={this.handleDateChange}
-              dateFormat={"DD.MM.YYYY"}
-            />
-            <TimePicker
-              showSecond={false}
-              defaultValue={this.state.time}
-              onChange={this.handleTimeChange}
-            />
-            <FormControl
-              type={'text'}
-              placeholder={''}
-              value={this.state.details}
-              onChange={this.updateDetails}
-            />
-            <Button
-              onClick={this.createAppointment}>
-              Create schedule!
-            </Button>
+            <Row className={'modal-row'}>
+              <Col xs={6}>
+                <p>Date:</p>
+                <DatePicker
+                  selected={this.state.date}
+                  onChange={this.handleDateChange}
+                  dateFormat={"DD.MM.YYYY"}
+                />
+              </Col>
+              <Col xs={6}>
+                <p>Time:</p>
+                <TimePicker
+                  showSecond={false}
+                  defaultValue={this.state.time}
+                  onChange={this.handleTimeChange}
+                />
+              </Col>
+            </Row>
+            <Row className={'modal-row'}>
+              <Col xs={12}>
+                <p>Label:</p>
+              </Col>
+              <FormGroup>
+                <Col xs={2}>
+                  <input
+                    id={'label1'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+                <Col xs={2}>
+                  <input
+                    id={'label2'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+                <Col xs={2}>
+                  <input
+                    id={'label3'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+                <Col xs={2}>
+                  <input
+                    id={'label4'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+                <Col xs={2}>
+                  <input
+                    id={'label5'}
+                    type={'radio'}
+                    name={'radioGroup'}
+                    className={'modal-label-picker'}
+                    onClick={() => this.setColor('')}/>
+                </Col>
+              </FormGroup>
+            </Row>
+            <Row className={'modal-row'}>
+              <Col xs={12}>
+                <p>Schedule description:</p>
+              </Col>
+              <Col sm={9}>
+                <FormControl
+                  type={'text'}
+                  placeholder={''}
+                  value={this.state.details}
+                  onChange={this.updateDetails}
+                />
+              </Col>
+              <Col sm={3} xs={6}>
+                <Button
+                  onClick={this.createAppointment}
+                  bsStyle={'primary'}
+                  className={'modal-schedule-button'}>
+                  Schedule event
+                </Button>
+              </Col>
+            </Row>
           </Modal.Body>
         </Modal>
       </div>

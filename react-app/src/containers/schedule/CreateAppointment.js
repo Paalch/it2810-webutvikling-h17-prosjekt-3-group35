@@ -66,6 +66,7 @@ class CreateAppointment extends Component {
       idCounter: this.state.idCounter + 1
     });
     this.props.onCreateAppointment(this.state.appointments);
+    this.setState({details: ''});
     this.props.closeNewAppointment();
   };
 
@@ -74,29 +75,48 @@ class CreateAppointment extends Component {
       <div className={'appointment-container'}>
         <Modal show={this.props.showModal} onHide={this.props.closeNewAppointment}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Create new event</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <DatePicker
-              selected={this.state.date}
-              onChange={this.handleDateChange}
-              dateFormat={"DD.MM.YYYY"}
-            />
-            <TimePicker
-              showSecond={false}
-              defaultValue={this.state.time}
-              onChange={this.handleTimeChange}
-            />
-            <FormControl
-              type={'text'}
-              placeholder={''}
-              value={this.state.details}
-              onChange={this.updateDetails}
-            />
-            <Button
-              onClick={this.createAppointment}>
-              Create schedule!
-            </Button>
+            <Row className={'modal-row'}>
+              <Col xs={6}>
+                <p>Date:</p>
+                <DatePicker
+                  selected={this.state.date}
+                  onChange={this.handleDateChange}
+                  dateFormat={"DD.MM.YYYY"}
+                />
+              </Col>
+              <Col xs={6}>
+                <p>Time:</p>
+                <TimePicker
+                  showSecond={false}
+                  defaultValue={this.state.time}
+                  onChange={this.handleTimeChange}
+                />
+              </Col>
+            </Row>
+            <Row className={'modal-row'}>
+              <Col xs={12}>
+                <p>Schedule description:</p>
+              </Col>
+              <Col sm={9}>
+                <FormControl
+                  type={'text'}
+                  placeholder={''}
+                  value={this.state.details}
+                  onChange={this.updateDetails}
+                />
+              </Col>
+              <Col sm={3}>
+                <Button
+                  onClick={this.createAppointment}
+                  bsStyle={'primary'}
+                  className={'modal-schedule-button'}>
+                  Schedule event
+                </Button>
+              </Col>
+            </Row>
           </Modal.Body>
         </Modal>
       </div>

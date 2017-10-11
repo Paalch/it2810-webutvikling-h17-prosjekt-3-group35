@@ -67,12 +67,12 @@ class Schedule extends Component {
             </Col>
           </Row>
           <Row className={'box-body'}>
+            <Col>
             { createAppointment }
-            <Row>
-              <AppointmentList
-                appointments={this.state.appointments}
-                onAppointments={this.handleAppointment}/>
-            </Row>
+                <AppointmentList
+                    appointments={this.state.appointments}
+                    onAppointments={this.handleAppointment}/>
+            </Col>
           </Row>
         </div>
       </div>

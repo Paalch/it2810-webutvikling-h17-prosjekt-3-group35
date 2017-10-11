@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Appointment from "./Appointment";
 
 
+
 class AppointmentList extends Component {
 
   constructor(props) {
@@ -21,14 +22,15 @@ class AppointmentList extends Component {
   }
 
   render() {
-    const appointments = (this.state.appointments).sort((a, b) => a[1] > b[1]).map((apps, i) =>
+    const appointments = (this.state.appointments).sort((a, b) => a[2] > b[2]).map((apps, i) =>
       <Appointment
-        text={apps[0]} moment={apps[1]} key={i} id={apps[2]} appointments={this.state.appointments}
+          content={apps}
+        text={apps[1]} moment={apps[2]} key={i} id={apps[3]} time={apps[0]} appointments={this.state.appointments}
         receiveAppointment={this.receiveAppointment}/>);
     return (
       <div>
         <div>
-          { appointments }
+              {appointments}
         </div>
       </div>
     );

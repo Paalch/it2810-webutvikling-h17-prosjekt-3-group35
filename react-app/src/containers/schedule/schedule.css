@@ -11,6 +11,23 @@
 .schedule-button:active, .schedule-button:focus, .schedule-button:active {
   outline: none !important;
   border: none !important;
+}
+
+.appointment-container{
+  background-color: #00d6b2;
+  margin: 5px;
+}
+
+.appointment-content{
+  padding: 10px;
+}
+
+.delete-appointment{
+  background-color: inherit !important;
+  outline: none !important;
+  box-shadow: none;
+  border: none;
+  float: right;
   background-color: #337ab7 !important;
 }
 

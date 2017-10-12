@@ -13,11 +13,11 @@ class Main extends Component {
     this.state = {
       schedule: '',
       todo: 'hidden-xs',
-      notes: 'hidden-xs'
-    }
-    this.openSchedule = this.openSchedule.bind(this)
-    this.openNotes = this.openNotes.bind(this)
-    this.openTodo = this.openTodo.bind(this)
+      notes: 'hidden-xs',
+    };
+    this.openSchedule = this.openSchedule.bind(this);
+    this.openNotes = this.openNotes.bind(this);
+    this.openTodo = this.openTodo.bind(this);
 
   }
 

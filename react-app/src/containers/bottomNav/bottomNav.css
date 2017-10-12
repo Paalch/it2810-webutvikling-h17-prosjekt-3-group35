@@ -9,17 +9,25 @@
 
 .nav-item {
   height: 100%;
+  text-align: center;
+  padding-top: 3%;
+  font-weight: bolder;
+  font-size: large;
+  color: #fff;
+  box-shadow: 3px 1px 3px rgba(0,0,0,0.3);
 }
 
 #todo {
-  background-color: #ccf;
+  background-color: mediumpurple;
 }
 
 #notes {
-  background-color: #ffffa5;
+  background-color: #F5D76E;
+  border-left: 2px solid #212a34;
 }
 
 #schedule {
-  background-color: #cfc;
+  background-color: #1c588c;
+  border-right: 2px solid #212a34;
 }
 

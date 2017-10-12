@@ -14,6 +14,28 @@ class TodoList extends Component {
     this.updateTextField = this.updateTextField.bind(this);
     this.saveTodo = this.saveTodo.bind(this);
     this.removeElement = this.removeElement.bind(this);
+    this.save = this.save.bind(this);
+    this.load = this.load.bind(this);
+  }
+
+  componentDidMount() {
+    const data = this.load();
+    if (data !== null) {
+      this.setState(() => data);
+    }
+  }
+
+  componentDidUpdate() {
+    this.save();
+  }
+
+  save() {
+    localStorage.setItem('todo', JSON.stringify(this.state));
+  }
+
+  load() {
+    return 'todo' in localStorage ?
+      JSON.parse(localStorage.getItem('todo')) : null;
   }
 
   updateTextField(e) {

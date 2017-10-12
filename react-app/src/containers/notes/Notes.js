@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from 'react-bootstrap'
-import './notes.css'
+import {Button} from 'react-bootstrap';
+import './notes.css';
 import NoteElement from "./NoteElement";
-import { Row, Col } from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 
 class Notes extends React.Component {
   constructor() {
@@ -10,7 +10,7 @@ class Notes extends React.Component {
     this.state = {
       notes: [],
       currentKeyCounter: 0
-    }
+    };
     this.addNewNote = this.addNewNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
     this.updateTextField = this.updateTextField.bind(this);
@@ -18,12 +18,24 @@ class Notes extends React.Component {
     this.load = this.load.bind(this);
   }
 
+  componentDidMount() {
+    const data = this.load();
+    if (data !== null) {
+      this.setState(() => data);
+    }
+  }
+
+  componentDidUpdate() {
+    this.save();
+  }
+
   save() {
     localStorage.setItem('notes', JSON.stringify(this.state));
   }
 
   load() {
-    localStorage.getItem('notes');
+    return 'notes' in localStorage ?
+      JSON.parse(localStorage.getItem('notes')) : null;
   }
 
   addNewNote() {
@@ -35,21 +47,20 @@ class Notes extends React.Component {
 
   deleteNote(index) {
     const tempNotes = this.state.notes.filter(n => n.id !== index);
-    this.setState({notes: tempNotes,currentKeyCounter: this.state.currentKeyCounter});
+    this.setState({notes: tempNotes, currentKeyCounter: this.state.currentKeyCounter});
   }
 
   updateTextField(index, text) {
     const tempNotes = this.state.notes;
     tempNotes.forEach((note) => {
-      if(note.id === index) {
+      if (note.id === index) {
         note.text = text;
       }
     });
-    this.setState({notes: tempNotes, currentKeyCounter: this.state.currentKeyCounter})
-
+    this.setState({notes: tempNotes, currentKeyCounter: this.state.currentKeyCounter});
   }
 
-  render () {
+  render() {
     const content = this.state.notes.map((note, i) =>
       <NoteElement key={i} note={note} updateTextField={this.updateTextField} deleteNote={this.deleteNote}/>
     );
@@ -71,7 +82,7 @@ class Notes extends React.Component {
         </Row>
         <Row className={'notes-body box-body'}>
           <div>
-          { content }
+            {content}
           </div>
         </Row>
       </div>

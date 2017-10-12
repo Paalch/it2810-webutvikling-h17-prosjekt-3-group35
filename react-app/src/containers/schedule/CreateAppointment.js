@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Col, Row, FormControl, Button, Modal, FormGroup } from 'react-bootstrap'
+import {Col, Row, FormControl, Button, Modal, FormGroup} from 'react-bootstrap'
 import moment from 'moment'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'rc-time-picker';
@@ -7,14 +7,13 @@ import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-
 class CreateAppointment extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       date: moment(),
-      time: moment(),
+      time: moment().set('minute', 0),
       details: '',
       label: '',
       idCounter: 0,
@@ -26,6 +25,7 @@ class CreateAppointment extends Component {
     this.createAppointment = this.createAppointment.bind(this);
     this.updateDetails = this.updateDetails.bind(this);
     this.setColor = this.setColor.bind(this);
+    this.disabledMinutes = this.disabledMinutes.bind(this);
   }
 
   handleDateChange(date) {
@@ -50,31 +50,36 @@ class CreateAppointment extends Component {
     this.setState({color: c});
   }
 
+  disabledMinutes() {
+    let minutes = [];
+    for (let i = 1; i <= 60; i++) {
+      if (i % 15 !== 0) {
+        minutes.push(i);
+      }
+    }
+    return minutes;
+  }
+
 
   createAppointment() {
     let appointments = this.state.appointments;
-
-    let iDate = this.state.date.format("DD.MM.YYYY");
-    let iTime = this.state.time.format("HH:mm");
-
-    let dateAndTime = moment(iDate + " " + iTime);
 
     let id = this.state.idCounter;
     let color = this.state.color;
 
     appointments.push([
-      this.state.date.format("DD.MM.YYYY") + " " +
-      this.state.time.format("HH:mm")
-      ,this.state.details,
-      dateAndTime,
+      this.state.date,
+      this.state.time,
+      this.state.details,
       id,
       color]);
+
     this.setState({
       appointments: appointments,
       idCounter: this.state.idCounter + 1
     });
     this.props.onCreateAppointment(this.state.appointments);
-    this.setState({details: ''});
+    this.setState({details: '', color: '#337ab7', date: moment(), time: moment().set('minute', 0)});
     this.props.closeNewAppointment();
   };
 
@@ -92,15 +97,18 @@ class CreateAppointment extends Component {
                 <DatePicker
                   selected={this.state.date}
                   onChange={this.handleDateChange}
-                  dateFormat={"DD.MM.YYYY"}
+                  locale={"no-bm"}
                 />
               </Col>
               <Col xs={6}>
                 <p>Time:</p>
                 <TimePicker
                   showSecond={false}
-                  defaultValue={this.state.time}
+                  defaultValue={moment().set('minute', 0)}
                   onChange={this.handleTimeChange}
+                  disabledMinutes={this.disabledMinutes}
+                  hideDisabledOptions={true}
+
                 />
               </Col>
             </Row>

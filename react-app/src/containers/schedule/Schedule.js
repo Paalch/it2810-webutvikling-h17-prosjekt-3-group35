@@ -4,7 +4,6 @@ import CreateAppointment from "./CreateAppointment";
 import AppointmentList from "./AppointmentList";
 import './schedule.css';
 
-
 class Schedule extends Component {
 
   constructor(props) {
@@ -46,6 +45,7 @@ class Schedule extends Component {
       appointments: appointments
     });
   }
+
 
   handleAppointment(appointments) {
     this.setState({

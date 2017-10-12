@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import Appointment from "./Appointment";
 
-
-
 class AppointmentList extends Component {
 
   constructor(props) {
@@ -21,10 +19,13 @@ class AppointmentList extends Component {
   }
 
   render() {
-    const appointments = (this.state.appointments).sort((a, b) => a[2] > b[2]).map((apps, i) =>
+    //Sort by date, not by time
+    const appointments = (this.state.appointments).sort((a, b) => a[0].isAfter(b[0])).map((apps, i) =>
       <Appointment
-          content={apps}
-        text={apps[1]} moment={apps[2]} key={i} id={apps[3]} time={apps[0]} color={apps[4]} appointments={this.state.appointments}
+        content={apps}
+        text={apps[2]} moment={apps[2]} key={i} id={apps[3]}
+        time={apps[0].format("DD.MM.YYYY") + " " + apps[1].format("HH:mm")} color={apps[4]}
+        appointments={this.state.appointments}
         receiveAppointment={this.receiveAppointment}/>);
     return (
       <div>

@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default class ScheduleScreen extends React.Component {
     static navigationOptions = {
         title: 'Schedule',
-        headerStyle: { backgroundColor: '#212a34', elevation: 6, paddingTop: 6,},
+        headerStyle: { backgroundColor: '#1c588c', elevation: 6, paddingTop: 6,},
         headerTitleStyle: { color: '#fff',},
         headerTintColor: '#fff'
     };
@@ -22,11 +22,11 @@ export default class ScheduleScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#666",
+        backgroundColor: "#222b34",
         padding: 10,
     },
 
     schedule: {
-        backgroundColor: "#cf7",
+        backgroundColor: "#1c588c",
     },
 });

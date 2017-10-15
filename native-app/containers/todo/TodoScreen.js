@@ -5,7 +5,7 @@ import TodoElement from "./TodoElement"
 export default class TodoScreen extends React.Component {
     static navigationOptions = {
         title: 'Todo',
-        headerStyle: { backgroundColor: '#212a34', elevation: 6, paddingTop: 6,},
+        headerStyle: { backgroundColor: 'mediumpurple', elevation: 6, paddingTop: 6,},
         headerTitleStyle: { color: '#fff',},
         headerTintColor: '#fff'
     };
@@ -61,7 +61,7 @@ export default class TodoScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#666",
+        backgroundColor: "#212a34",
         padding: 10,
     },
 
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
 
     textInput: {
         paddingLeft: 20,
-        paddingTop: 10
+        paddingTop: 10,
     },
 
 });

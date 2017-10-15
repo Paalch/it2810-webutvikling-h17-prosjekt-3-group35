@@ -5,7 +5,7 @@ import NoteElement from './NoteElement';
 export default class NotesScreen extends React.Component {
     static navigationOptions = {
         title: 'Notes',
-        headerStyle: { backgroundColor: '#212a34', elevation: 6, paddingTop: 6,},
+        headerStyle: { backgroundColor: '#F5D76E', elevation: 6, paddingTop: 6,},
         headerTitleStyle: { color: '#fff',},
         headerTintColor: '#fff'
     };
@@ -54,7 +54,7 @@ export default class NotesScreen extends React.Component {
                 <ScrollView style={styles.notesBody}>
                    { content }
                 </ScrollView>
-                <Button onPress={this.addNewNote} title={"+ New Note"} color={"#212a34"}/>
+                <Button onPress={this.addNewNote} title={"+ New Note"} color={"#666"}/>
             </View>
         )
     }
@@ -62,7 +62,7 @@ export default class NotesScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#666",
+        backgroundColor: "#212a34",
         flex: 1,
         paddingTop: 10,
         paddingLeft: 10,

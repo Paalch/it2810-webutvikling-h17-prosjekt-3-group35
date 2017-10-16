@@ -4,24 +4,33 @@ import CreateAppointment from "./CreateAppointment";
 import AppointmentList from "./AppointmentList";
 import './schedule.css';
 
+const moment = require('moment');
+
+
 class Schedule extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       appointments: [],
+      idCounter: 0,
       showModal: false
     };
-    this.load = this.load.bind(this);
+
+    Schedule.load = Schedule.load.bind(this);
     this.save = this.save.bind(this);
     this.handleCreateAppointment = this.handleCreateAppointment.bind(this);
-    this.handleAppointment = this.handleAppointment.bind(this);
+    this.handleDeleteAppointment = this.handleDeleteAppointment.bind(this);
     this.openNewAppointment = this.openNewAppointment.bind(this);
     this.closeNewAppointment = this.closeNewAppointment.bind(this);
   }
 
   componentDidMount() {
-    const data = this.load();
+    const data = Schedule.load();
+    data.appointments.forEach(function (a) {
+      a.date = moment(a.date);
+      a.time = moment(a.time);
+    });
     if (data !== null) {
       this.setState(() => data);
     }
@@ -35,19 +44,21 @@ class Schedule extends Component {
     localStorage.setItem('schedule', JSON.stringify(this.state));
   }
 
-  load() {
+  static load() {
     return 'schedule' in localStorage ?
       JSON.parse(localStorage.getItem('schedule')) : null;
   }
 
-  handleCreateAppointment(appointments) {
+  handleCreateAppointment(appointment) {
+    const newAppoinments = this.state.appointments.slice();
+    newAppoinments.push(appointment);
     this.setState({
-      appointments: appointments
+      appointments: newAppoinments,
+      idCounter: this.state.idCounter+1
     });
   }
 
-
-  handleAppointment(appointments) {
+  handleDeleteAppointment(appointments) {
     this.setState({
       appointments: appointments
     });
@@ -82,14 +93,14 @@ class Schedule extends Component {
             <Col>
               <Row>
                 <CreateAppointment
-                  appointments={this.state.appointments}
                   onCreateAppointment={this.handleCreateAppointment}
+                  idCounter={this.state.idCounter}
                   showModal={this.state.showModal}
                   closeNewAppointment={this.closeNewAppointment}/>
               </Row>
               <AppointmentList
                 appointments={this.state.appointments}
-                onAppointments={this.handleAppointment}/>
+                onDeleteAppointment={this.handleDeleteAppointment}/>
             </Col>
           </Row>
         </div>

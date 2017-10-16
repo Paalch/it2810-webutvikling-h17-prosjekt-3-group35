@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import Schedule from "./schedule/Schedule";
-import Todo from "./todo/Todo";
-import Notes from "./notes/Notes";
-import BottomNav from "./bottomNav/BottomNav"
-import '../styles/main.css';
+import Schedule from "../schedule/Schedule";
+import Todo from "../todo/Todo";
+import Notes from "../notes/Notes";
+import BottomNav from "../bottomNav/BottomNav"
+import './main.css';
 
 
 class Main extends Component {

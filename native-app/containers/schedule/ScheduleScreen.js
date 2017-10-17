@@ -4,8 +4,6 @@ import CreateAppointment from "./CreateAppointment";
 import AppointmentList from "./AppointmentList";
 import moment from 'moment';
 
-
-
 export default class ScheduleScreen extends React.Component {
     static navigationOptions = {
         title: 'Schedule',
@@ -82,10 +80,10 @@ export default class ScheduleScreen extends React.Component {
             <View>
                 <View className={'schedule-container box'}>
                     <View className={'box-header schedule-header'}>
-                        <View xs={7} sm={8} md={9} style={{paddingLeft: '0px'}}>
+                        <View>
                             <Text>Schedule</Text>
                         </View>
-                        <View xs={5} sm={4} md={3}>
+                        <View>
                             <Button
                                 className={'schedule-button'}
                                 onPress={this.openNewAppointment}

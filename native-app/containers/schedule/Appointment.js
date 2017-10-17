@@ -11,8 +11,7 @@ export default class Appointment extends React.Component {
                     className={"delete-appointment"}
                     onPress={() => this.props.deleteAppointment(this.props.appointment.id)}
                     style={{backgroundColor: this.props.color}}
-                    Title="X"/>
-
+                    title="X"/>
             </View>
         );
     }

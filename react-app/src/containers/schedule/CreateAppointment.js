@@ -18,7 +18,7 @@ class CreateAppointment extends Component {
       time: moment().set('minute', 0),
       details: '',
       label: '',
-      color: '#337ab7'
+      style: 'primary'
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
@@ -46,8 +46,8 @@ class CreateAppointment extends Component {
     });
   }
 
-  setColor(c) {
-    this.setState({color: c});
+  setColor(label) {
+    this.setState({style: label});
   }
 
   static disabledMinutes() {
@@ -68,11 +68,11 @@ class CreateAppointment extends Component {
       time: this.state.time,
       details: this.state.details,
       id: this.props.idCounter,
-      color: this.state.color
+      style: this.state.style
     };
 
     this.props.onCreateAppointment(appointment);
-    this.setState({details: '', color: '#337ab7', date: moment(), time: moment().set('minute', 0)});
+    this.setState({details: '', style: 'primary', date: moment(), time: moment().set('minute', 0)});
     this.props.closeNewAppointment();
   };
 
@@ -116,7 +116,7 @@ class CreateAppointment extends Component {
                     type={'radio'}
                     name={'radioGroup'}
                     className={'modal-label-picker'}
-                    onClick={() => this.setColor('#337ab7')}/>
+                    onClick={() => this.setColor('primary')}/>
                 </Col>
                 <Col xs={2}>
                   <input
@@ -124,7 +124,7 @@ class CreateAppointment extends Component {
                     type={'radio'}
                     name={'radioGroup'}
                     className={'modal-label-picker'}
-                    onClick={() => this.setColor('#A25188')}/>
+                    onClick={() => this.setColor('success')}/>
                 </Col>
                 <Col xs={2}>
                   <input
@@ -132,7 +132,7 @@ class CreateAppointment extends Component {
                     type={'radio'}
                     name={'radioGroup'}
                     className={'modal-label-picker'}
-                    onClick={() => this.setColor('#447884')}/>
+                    onClick={() => this.setColor('info')}/>
                 </Col>
                 <Col xs={2}>
                   <input
@@ -140,7 +140,7 @@ class CreateAppointment extends Component {
                     type={'radio'}
                     name={'radioGroup'}
                     className={'modal-label-picker'}
-                    onClick={() => this.setColor('#CA6573')}/>
+                    onClick={() => this.setColor('warning')}/>
                 </Col>
                 <Col xs={2}>
                   <input
@@ -148,7 +148,7 @@ class CreateAppointment extends Component {
                     type={'radio'}
                     name={'radioGroup'}
                     className={'modal-label-picker'}
-                    onClick={() => this.setColor('#7B498D')}/>
+                    onClick={() => this.setColor('danger')}/>
                 </Col>
               </FormGroup>
             </Row>

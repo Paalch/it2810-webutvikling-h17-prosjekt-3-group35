@@ -35,7 +35,7 @@ class AppointmentList extends Component {
         text={appointment.details}
         id={appointment.id}
         time={appointment.date.format("DD.MM.YYYY") + " " + appointment.time.format("HH:mm")}
-        color={appointment.color}
+        style={appointment.style}
         appointments={appointments}
         deleteAppointment={this.deleteAppointment}
         receiveAppointment={this.receiveAppointment}/>);

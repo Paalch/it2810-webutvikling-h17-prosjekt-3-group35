@@ -30,11 +30,11 @@ export default class ScheduleScreen extends React.Component {
 
     componentDidMount() {
         const data = ScheduleScreen.load();
-        data.appointments.forEach(function (a) {
-            a.date = moment(a.date);
-            a.time = moment(a.time);
-        });
         if (data !== null) {
+            data.appointments.forEach(function (a) {
+                a.date = moment(a.date);
+                a.time = moment(a.time);
+            });
             this.setState(() => data);
         }
     }

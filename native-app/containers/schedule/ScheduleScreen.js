@@ -77,12 +77,9 @@ export default class ScheduleScreen extends React.Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <View className={'schedule-container box'}>
                     <View className={'box-header schedule-header'}>
-                        <View>
-                            <Text>Schedule</Text>
-                        </View>
                         <View>
                             <Button
                                 className={'schedule-button'}
@@ -90,7 +87,7 @@ export default class ScheduleScreen extends React.Component {
                                 title="+ New Schedule"/>
                         </View>
                     </View>
-                    <View className={'box-body'}>
+                    <ScrollView className={'box-body'}>
                         <View>
                             <View>
                                 <CreateAppointment
@@ -103,7 +100,7 @@ export default class ScheduleScreen extends React.Component {
                                 appointments={this.state.appointments}
                                 onDeleteAppointment={this.handleDeleteAppointment}/>
                         </View>
-                    </View>
+                    </ScrollView>
                 </View>
             </View>
         )

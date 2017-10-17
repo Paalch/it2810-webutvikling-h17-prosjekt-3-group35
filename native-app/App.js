@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
 
     schedule: {
-        backgroundColor: "#cf7",
+        backgroundColor: "#1c588c",
         marginLeft: '3%',
         marginRight: '3%',
         marginTop: '3%',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     },
 
     todo: {
-        backgroundColor: "#cbf",
+        backgroundColor: "mediumpurple",
         marginLeft: '3%',
         marginRight: '3%',
         marginTop: '3%',
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
 
     notes: {
-        backgroundColor: "#FFFF99",
+        backgroundColor: "#F5D76E",
         marginLeft: '3%',
         marginRight: '3%',
         marginTop: '3%',
@@ -106,6 +106,6 @@ const styles = StyleSheet.create({
 
     buttonText: {
         fontSize: 40,
-        color: '#212a34'
+        color: '#fff',
     }
 });

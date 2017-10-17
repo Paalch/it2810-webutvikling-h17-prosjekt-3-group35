@@ -1,7 +1,5 @@
 .schedule-container {
-  background: #222b34;
-  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-  height: 85vh;
+  height: 95vh;
 }
 
 .schedule-header {
@@ -14,7 +12,6 @@
 }
 
 .appointment-container{
-  background-color: #00d6b2;
   margin: 5px;
 }
 
@@ -23,10 +20,16 @@
 }
 
 .delete-appointment{
+  color: white;
   outline: none !important;
   box-shadow: none;
   border: none;
   float: right;
+}
+
+.delete-appointment:hover{
+  color: white;
+  text-decoration: none;
 }
 
 .modal-row {
@@ -55,22 +58,30 @@
   outline-offset: 0 !important;
 }
 
-#label1 {
+.panel {
+  border: none;
+}
+
+.panel>.panel-heading {
+  color: white;
+}
+
+.panel-primary>.panel-heading, #label1 {
   background-color: #337ab7;
 }
 
-#label2 {
+.panel-success>.panel-heading, #label2 {
   background-color: #A25188;
 }
 
-#label3 {
+.panel-info>.panel-heading, #label3 {
   background-color: #447884;
 }
 
-#label4 {
+.panel-warning>.panel-heading, #label4 {
   background-color: #CA6573;
 }
 
-#label5 {
+.panel-danger>.panel-heading, #label5 {
   background-color: #7B498D;
 }

@@ -2,6 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, ScrollView, AsyncStorage } from 'react-native';
 import CreateAppointment from "./CreateAppointment";
 import AppointmentList from "./AppointmentList";
+import moment from 'moment';
+
+
 
 export default class ScheduleScreen extends React.Component {
     static navigationOptions = {
@@ -15,18 +18,24 @@ export default class ScheduleScreen extends React.Component {
         super(props);
         this.state = {
             appointments: [],
+            idCounter: 0,
             showModal: false
         };
-        this.load = this.load.bind(this);
+
+        ScheduleScreen.load = ScheduleScreen.load.bind(this);
         this.save = this.save.bind(this);
         this.handleCreateAppointment = this.handleCreateAppointment.bind(this);
-        this.handleAppointment = this.handleAppointment.bind(this);
+        this.handleDeleteAppointment = this.handleDeleteAppointment.bind(this);
         this.openNewAppointment = this.openNewAppointment.bind(this);
         this.closeNewAppointment = this.closeNewAppointment.bind(this);
     }
 
     componentDidMount() {
-        const data = this.load();
+        const data = ScheduleScreen.load();
+        data.appointments.forEach(function (a) {
+            a.date = moment(a.date);
+            a.time = moment(a.time);
+        });
         if (data !== null) {
             this.setState(() => data);
         }
@@ -40,18 +49,21 @@ export default class ScheduleScreen extends React.Component {
         AsyncStorage.setItem('schedule', JSON.stringify(this.state));
     }
 
-    load() {
+    static load() {
         return 'schedule' in AsyncStorage ?
             JSON.parse(AsyncStorage.getItem('schedule')) : null;
     }
 
-    handleCreateAppointment(appointments) {
+    handleCreateAppointment(appointment) {
+        const newAppointments = this.state.appointments.slice();
+        newAppointments.push(appointment);
         this.setState({
-            appointments: appointments
+            appointments: newAppointments,
+            idCounter: this.state.idCounter+1
         });
     }
 
-    handleAppointment(appointments) {
+    handleDeleteAppointment(appointments) {
         this.setState({
             appointments: appointments
         });
@@ -65,23 +77,38 @@ export default class ScheduleScreen extends React.Component {
         this.setState({showModal: false});
     }
 
-
     render() {
         return (
-            <View style={styles.container}>
-                <ScrollView>
-                    <CreateAppointment
-                         appointments={this.state.appointments}
-                         onCreateAppointment={this.handleCreateAppointment}
-                         showModal={this.state.showModal}
-                         closeNewAppointment={this.closeNewAppointment}/>
-                    <AppointmentList
-                         appointments={this.state.appointments}
-                         onAppointments={this.handleAppointment}/>
-                </ScrollView>
-                <Button onPress={this.openNewAppointment} title={"+ New schedule"} color={"#666"}/>
+            <View>
+                <View className={'schedule-container box'}>
+                    <View className={'box-header schedule-header'}>
+                        <View xs={7} sm={8} md={9} style={{paddingLeft: '0px'}}>
+                            <Text>Schedule</Text>
+                        </View>
+                        <View xs={5} sm={4} md={3}>
+                            <Button
+                                className={'schedule-button'}
+                                onPress={this.openNewAppointment}
+                                title="+ New Schedule"/>
+                        </View>
+                    </View>
+                    <View className={'box-body'}>
+                        <View>
+                            <View>
+                                <CreateAppointment
+                                    onCreateAppointment={this.handleCreateAppointment}
+                                    idCounter={this.state.idCounter}
+                                    showModal={this.state.showModal}
+                                    closeNewAppointment={this.closeNewAppointment}/>
+                            </View>
+                            <AppointmentList
+                                appointments={this.state.appointments}
+                                onDeleteAppointment={this.handleDeleteAppointment}/>
+                        </View>
+                    </View>
+                </View>
             </View>
-        );
+        )
     }
 }
 

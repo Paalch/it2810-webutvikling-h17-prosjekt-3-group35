@@ -53,6 +53,7 @@ export default class CreateAppointment extends React.Component {
         }
         return minutes;
     }
+    
 
     createAppointment() {
         let appointments = this.state.appointments;

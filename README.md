@@ -40,6 +40,28 @@ npm start
 
 ### React native app
 
+```
+# To run the native-app, enter the folder "natice-app"
+
+cd native-app
+
+# Install dependencies
+
+npm install
+
+# Run the project
+
+npm start
+
+# This will start a development server for you, and print a QR code in your terminal
+
+# Install the Expo client app on your iOS or Android phone
+
+# Connect to the same wireless network as your computer
+
+# Use the Expo app to scan the QR code from your terminal to open your project.
+
+```
 
 ## Mer?
 

@@ -62,5 +62,6 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!**/node_modules/**"
+      ]
   }
 }

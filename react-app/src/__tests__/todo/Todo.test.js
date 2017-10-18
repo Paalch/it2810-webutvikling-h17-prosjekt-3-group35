@@ -11,7 +11,7 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('Checks that the todo component renders correctly', () => {
 
-    //checks that todo render, bt compareing snapshot
+    //checks that todo render, by compareing snapshot
     it('Checks that Todo renders', () => {
         const rendered = renderer.create(
             <Todo />
@@ -19,7 +19,7 @@ describe('Checks that the todo component renders correctly', () => {
         expect(rendered.toJSON()).toMatchSnapshot()
     });
 
-    //Checks that the todoList renders one and only one
+    //Checks that only one todolist is renderd
     it('Checks that TodoList renders', () => {
         const wrapper = shallow(<Todo />);
         expect(wrapper.find(TodoList)).toHaveLength(1);

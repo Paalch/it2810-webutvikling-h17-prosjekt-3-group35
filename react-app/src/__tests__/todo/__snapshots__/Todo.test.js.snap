@@ -38,7 +38,9 @@ exports[`Checks that the todo component renders correctly Checks that Todo rende
             disabled={false}
             onClick={[Function]}
             type="button"
-          />
+          >
+            +
+          </button>
         </div>
       </div>
       <div

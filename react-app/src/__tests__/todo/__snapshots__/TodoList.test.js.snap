@@ -25,7 +25,9 @@ exports[`Checks that the todo components renders correctly renders correctly 1`]
         disabled={false}
         onClick={[Function]}
         type="button"
-      />
+      >
+        +
+      </button>
     </div>
   </div>
   <div

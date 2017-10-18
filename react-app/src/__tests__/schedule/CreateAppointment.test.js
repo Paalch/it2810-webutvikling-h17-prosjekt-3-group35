@@ -12,7 +12,11 @@ describe('Checks that the createNewAppointment component renders correctly', () 
 
     it('Checks that newAppointment renders', () => {
         const rendered = renderer.create(
-            <CreateAppointment />
+            <CreateAppointment
+                onCreateAppointment={ () => {return false}}
+                idCounter={0}
+                showModal={false}
+                closeNewAppointment={ () => {return false}}/>
         );
         expect(rendered.toJSON()).toMatchSnapshot()
     });

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checks that the appointmentList component renders correctly Checks that appointmentList renders 1`] = `
+<div>
+  <div>
+    <div
+      className="appointment-container"
+    >
+      <div
+        className="panel panel-primary"
+        id={undefined}
+      >
+        <div
+          className="panel-heading"
+        >
+          <div
+            className="panel-title"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-8"
+              >
+                <p>
+                  18.10.2017 21:23
+                </p>
+              </div>
+              <div
+                className="col-xs-4"
+              >
+                <button
+                  className="delete-appointment btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  X
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="panel-body"
+        >
+          sometext
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checks that the todo components renders correctly Checks that Todo renders 1`] = `
+exports[`Checks that the todo component renders correctly Checks that Todo renders 1`] = `
 <div
   className="todo-container box"
 >

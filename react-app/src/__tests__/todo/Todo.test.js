@@ -9,7 +9,7 @@ import TodoList from '../../containers/todo/TodoList'
 Enzyme.configure({ adapter: new Adapter() })
 
 
-describe('Checks that the todo components renders correctly', () => {
+describe('Checks that the todo component renders correctly', () => {
 
     //checks that todo render, bt compareing snapshot
     it('Checks that Todo renders', () => {

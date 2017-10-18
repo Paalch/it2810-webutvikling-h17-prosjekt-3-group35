@@ -4,7 +4,6 @@ import TodoElement from '../../containers/todo/TodoElement'
 import Adapter from 'enzyme-adapter-react-15'
 import renderer from 'react-test-renderer'
 Enzyme.configure({ adapter: new Adapter() })
-import sinon from 'sinon';
 
 describe('Checks that TodoElement renders correctly', () => {
 

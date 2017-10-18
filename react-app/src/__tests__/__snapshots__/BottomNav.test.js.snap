@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checks that the navbar renders and contains what it must Checks that the navbar renders 1`] = `
+<div
+  className="nav-container row"
+>
+  <div
+    className="nav-item col-xs-4"
+    id="schedule"
+    onClick={undefined}
+  >
+    Schedule
+  </div>
+  <div
+    className="nav-item col-xs-4"
+    id="todo"
+    onClick={undefined}
+  >
+    2do
+  </div>
+  <div
+    className="nav-item col-xs-4"
+    id="notes"
+    onClick={undefined}
+  >
+    Notes
+  </div>
+</div>
+`;

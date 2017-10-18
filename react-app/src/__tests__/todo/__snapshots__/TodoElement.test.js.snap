@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checks that TodoElement renders correctly renders correctly 1`] = `
+<div
+  className="todo-element"
+>
+  <input
+    checked=""
+    className="checkbox-round"
+    onClick={[Function]}
+    type="checkbox"
+  />
+  <label>
+    2
+  </label>
+</div>
+`;
